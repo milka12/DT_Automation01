@@ -1,0 +1,9 @@
+{
+	"scenario": "error path",
+	"request_path": "/accounts/54321",
+	"request_method": "GET",
+	"response_code": 404,
+	"response_body": {
+		"message": "No such account"
+	}
+}

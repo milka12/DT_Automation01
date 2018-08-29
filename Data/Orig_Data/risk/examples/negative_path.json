@@ -1,0 +1,16 @@
+{
+	"scenario": "negative path",
+	"request_path": "/decision",
+	"request_method": "POST",
+	"request_body": {
+		"account_id": "12345",
+		"amount": "20000.00"
+	},
+	"response_code": 200,
+	"response_body": {
+		"account_id": "12345",
+		"amount": "20000.00",
+		"decision": false,
+		"reason": "PROBABLE_FRAUD"
+	}
+}

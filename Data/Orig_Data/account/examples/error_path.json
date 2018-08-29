@@ -1,0 +1,9 @@
+{
+	"scenario": "error path",
+	"request_path": "/accounts/67890",
+	"request_method": "GET",
+	"response_code": 500,
+	"response_body": {
+		"message": "System error"
+	}
+}

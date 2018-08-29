@@ -1,0 +1,64 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Risk service",
+    "description": "Risk service",
+    "contact": {
+      "email": "team@example.com"
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/v1/risksimtestserv",
+  "tags": [
+    {
+      "name": "Risk",
+      "description": "Risk Service"
+    }
+  ],
+  "paths": {
+    "/decision": {
+      "get": {
+        "summary": "Computes risk decision.",
+        "tags": [
+          "Decision"
+        ],
+        "description": "Compute risk decisionnt",
+        "x-api-name": "DecisionResource",
+        "operationId": "computeDecision",
+        "x-codegen-server-request-context": true,
+        "x-slo": {
+          "response_time_95th_percentile": 200,
+          "error_rate": 0.001
+        },
+        "parameters": [
+          {
+            "name": "decisionRequest",
+            "in": "body",
+            "description": "The data to decide on.",
+            "required": true,
+            "schema": {
+              "$ref" : "./././decision.json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref" : "./././decision.json"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref" : "./././error.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

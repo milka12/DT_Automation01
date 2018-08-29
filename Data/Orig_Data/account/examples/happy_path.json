@@ -1,0 +1,11 @@
+{
+	"scenario": "happy path",
+	"request_path": "/accounts/12345",
+	"request_method": "GET",
+	"response_code": 200,
+	"response_body": {
+		"account_id": "12345",
+		"first_name": "Pat",
+		"last_name": "Smith"
+	}
+}

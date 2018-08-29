@@ -1,0 +1,34 @@
+{
+  "title": "DecisionRequest",
+  "description": "Decision Request",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "account id",
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "amount": {
+      "description": "Amount",
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "decision": {
+      "description": "Decision",
+      "type": "boolean"
+    },
+    "reason": {
+      "description": "Reason for decision",
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "account_id",
+    "amount"
+  ]
+}

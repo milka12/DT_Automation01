@@ -1,0 +1,13 @@
+{
+	"scenario": "error path",
+	"request_path": "/decision",
+	"request_method": "POST",
+	"request_body": {
+		"account_id": "12345",
+		"amount": "7.00"
+	},
+	"response_code": 500,
+	"response_body": {
+		"message": "Lookup error"
+	}
+}
