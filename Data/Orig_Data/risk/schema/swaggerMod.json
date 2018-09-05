@@ -20,7 +20,7 @@
   ],
   "paths": {
     "/decision": {
-      "get": {
+      "post": {
         "summary": "Computes risk decision.",
         "tags": [
           "Decision"
@@ -40,7 +40,7 @@
             "description": "The data to decide on.",
             "required": true,
             "schema": {
-              "$ref" : "./././decision.json"
+              "$ref" : "#/definitions/decision"
             }
           }
         ],
