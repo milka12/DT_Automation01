@@ -1,0 +1,111 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Account service",
+    "description": "Account service",
+    "contact": {
+      "email": "team@example.com"
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/v1/accountsimtestserv",
+  "tags": [
+    {
+      "name": "Account",
+      "description": "Account Service"
+    }
+  ],
+  "paths": {
+    "/accounts/{account_id}": {
+      "get": {
+        "summary": "Gets account.",
+        "tags": [
+          "Accounts"
+        ],
+        "description": "Gets account",
+        "x-api-name": "AccountsResource",
+        "operationId": "getAccount",
+        "x-codegen-server-request-context": true,
+        "x-slo": {
+          "response_time_95th_percentile": 200,
+          "error_rate": 0.001
+        },
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account ID.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 16,
+            "pattern": "^[0-9]$",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref" : "#/definitions/account"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref" : "#/definitions/error"
+            }
+          }
+        }
+      }
+    }
+  }
+  ,
+  "definitions": {
+
+    "account": {
+  "title": "Account",
+  "description": "An account",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "account id",
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "first_name": {
+      "description": "Account holder first name",
+      "type": "string",
+      "minLength": 1
+    },
+    "last_name": {
+      "description": "Account holder last name",
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name"
+  ]
+},
+"error":{
+  "title": "Error",
+  "description": "An error",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "Error message",
+      "type": "string"
+    }
+  },
+  "required": [
+    "message"
+  ]
+}
+  }
+}
