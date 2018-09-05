@@ -1,1 +1,1 @@
-GET /accounts/67890  HTTP/1.1
+GET /v1/accountsimtestserv/accounts/67890  HTTP/1.1
