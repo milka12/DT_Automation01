@@ -40,7 +40,7 @@
             "description": "The data to decide on.",
             "required": true,
             "schema": {
-              "$ref" : "./././decision.json"
+              "$ref" : "./decision.json"
             }
           }
         ],
@@ -48,13 +48,13 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref" : "./././decision.json"
+              "$ref" : "./decision.json"
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "$ref" : "./././error.json"
+              "$ref" : "./error.json"
             }
           }
         }
