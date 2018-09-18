@@ -49,13 +49,13 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref" : "./././account.json"
+              "$ref" : "./account.json"
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "$ref" : "./././error.json"
+              "$ref" : "./error.json"
             }
           }
         }
