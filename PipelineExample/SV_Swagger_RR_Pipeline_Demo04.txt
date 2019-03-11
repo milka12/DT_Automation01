@@ -1,0 +1,497 @@
+//Pipeline to Create Virtual Service From SWAGGER and RR Pairs Run a Test and Undeploy
+
+node {
+    
+// Variables change per environment- These could become parameters
+
+	def TestServer2 = '192.168.89.148'
+	def devTestServer = '192.168.89.148'
+	//devTestServer = 'DTServer2'
+//	TestServer2 = 'DTServer2'
+	
+	def vseServer = 'VSE'
+	vseServer = 'VSED2'
+	
+	def serviceName = 'SWAGGER_RR_04'
+	
+	def serviceDesc = 'Service From SWAGGER and RR Pairs'
+	
+	def tPrecordingEndpointPort = '7015'
+	def tPtypeId = 'HTTP'
+	def tPbasePath = '/'
+	def tPuseGateway = 'true'
+	def tPhostHeaderPassThrough = 'false'
+	def tPrecordingEndpointHost = 'localhost'
+	def tPtargetEndpointHost = 'localhost'
+	def tPtargetEndpointPort = '51223'
+	
+	def dataProtocol = 'RESTDPH'
+	//Alternatives are 'SOAPDPH', 'JSONDPH' and 'XMLDPH', 'RESTDPH'
+	// the next  2 lines used in the DPH are key to having the system discover the rules from the SWAGGER
+	 def dphRESTRules = ''' "rules": []  '''
+    def dphUserConfigured = ''' "userConfigured":false '''
+    
+    def filePattern = '**/Data/RRPairs/**account_**-r**.txt'
+    filePattern = '**/Data/RRPairs/**-r**.txt'
+    
+
+     def swaggerFile1 = '**/Swagger/account_schema.zip'
+     def swaggerFile2 = '**/Swagger/risk_schema.zip'
+     
+    def testFileMar = 'Tests/SWAGGER_Test_All_01.mar'
+    def svPluginPort = '1505'
+    
+    def dataProtocol2 = 'JSONDPH'
+
+// This is the credential ID stored in each Jenkins instance 
+// You will need to change this to your Credential ID
+def myCredentialID = '5aec06db-b61e-4df4-a949-673793a6f5c6'
+
+
+// Variables used by multiple Stages Set here so they are in the scope for the node
+
+    def vseID = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+   	def sessionId = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	def tpId = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	def dpId = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	def bundleId = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	def inputContainerId = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	def processorId = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	def procId = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	def BundleProcStatus = 'IN_PROCESS'
+	def inputProcStatus = 'IN_PROCESS'
+ 
+ 	def sleepTime = '7'
+ 	def sleepTimeTest = '15'
+
+
+ 
+   stage('Retrieve SWAGGER and RRPairs from Github') {
+       // clean
+       //sh(script: 'git clean -fdx')
+       // Git Project downloaded to workspace
+       //git 'https://github.com/milka12/DT_Automation01'
+        git credentialsId: 'dd8dade7-879b-45c1-ac63-b1972f3a6a62', url: 'https://github.com/milka12/DT_Automation01'
+        
+   }
+   
+   stage('Start VSE Docker Container') {
+       
+       httpRequest httpMode: 'POST', ignoreSslErrors: true, responseHandle: 'NONE', url: """http://${devTestServer}:4243/containers/mystifying_bhaskara/start"""
+   }
+
+   stage('Create VS from Swagger') {
+           def responseVSEResponse = ''
+           def href  = ''
+           def rspVSE = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses"""
+			echo 'Response rspBuilder= ' + rspVSE.content
+            def jsonBuilder = readJSON text: rspVSE.content
+            def count = jsonBuilder.count
+            echo 'count  = ' +  count 
+            if(count>1) {
+			// The following lines are for multiple VSEs
+    			for(int i=0;i<count;i++) {
+    			     echo 'name = ' +  jsonBuilder._embedded.vses[i].name 
+                if(jsonBuilder._embedded.vses[i].name == """${vseServer}""") {
+                    href  = jsonBuilder._embedded.vses[i]._links.self.href
+                    vseID = href.substring(href.lastIndexOf('/')+1);
+                    echo 'vseID more than 1 = ' +  vseID 
+                    i=count
+                }
+             }
+			}
+            else {
+			href  = jsonBuilder._embedded.vses[0]._links.self.href
+			vseID = href.substring(href.lastIndexOf('/')+1)
+			echo 'vseID  = ' +  vseID 
+                
+            }
+	echo 'Get VSE Service List' 
+        // Get List of  virtual Services
+           // httpRequest same for Windows / Linux / Mac
+			def rspSvcs = httpRequest acceptType: 'APPLICATION_JSON', customHeaders: [[maskValue: false, name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], responseHandle: 'LEAVE_OPEN', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/services"""
+            	echo 'Response rspSvcs= ' + rspSvcs.content
+				
+	echo 'Create Builder Session' 
+           // httpRequest same for Windows / Linux / Mac
+           def rspBuilder = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], requestBody: """{\"name\":\"${serviceName}\",\"description\":\"${serviceDesc}\"}""", responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions"""
+			echo 'Response rspBuilder= ' + rspBuilder.content
+            jsonBuilder = readJSON text: rspBuilder.content
+             sessionId = jsonBuilder['id'].toString()
+           echo 'Builder sessionId  = ' +  sessionId
+        
+				
+	echo 'Create Transaction Bundle' 
+           // httpRequest same for Windows / Linux / Mac
+           def rspBundle = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles"""
+			echo 'Response rspBundle= ' + rspBundle.content
+            def jsonBundle = readJSON text: rspBundle.content
+             bundleId = jsonBundle['id'].toString()
+           echo 'bundleId  = ' +  bundleId
+				
+	echo 'Create InputContainer' 
+           // httpRequest same for Windows / Linux / Mac
+			def rspIC = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers"""
+			echo 'Response rspIC= ' + rspIC.content
+            def jsonIC = readJSON text: rspIC.content
+             inputContainerId = jsonIC['id'].toString()
+           echo 'inputContainerId  = ' +  inputContainerId
+				
+	echo 'Swagger File Load accounts to InputContainer'
+     // Get Swagger files downloaded from Git to workspace
+    def files = findFiles(glob: """${swaggerFile1}""")
+     //echo """${files[0].name} ${files[0].path} ${files[0].directory} ${files[0].length} ${files[0].lastModified}"""
+	def myFile = """${files[0].name}"""
+	def ws = ''
+	echo 'isUnix() = ' + isUnix()
+	if (isUnix()){
+	// Mac /Linux use '/'
+		ws = pwd() + '/Swagger/'
+	}
+	else {
+	// Windows use '\\' Mac /Linux use '/'
+		ws = pwd() + '\\Swagger\\'
+	}
+	
+	// iterate through Swagger files
+	def swaggerFiles = ''
+    for (ii = 0; ii < files.size(); ii++) {
+            echo 'working on ' + """${files[ii].path}"""
+       myFile = """${files[ii].path}"""
+		//echo 'myFile = ' + myFile
+		swaggerFiles = swaggerFiles + '  '+ """-F "file${ii+1}=@${myFile}" """
+	}
+	echo 'swaggerFiles = ' + swaggerFiles
+        // Load Swagger files
+		if (isUnix()){
+		   // Linux / Mac
+			sh(script: """curl -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId}/contents\" -H \"content-type: multipart/form-data\" ${swaggerFiles} """, returnStdout: true)
+		}
+		else{
+			// Windows
+			bat """curl -i -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId}/contents"" -H \"content-type: multipart/form-data\" ${swaggerFiles} """ 
+		   
+	}   
+ 
+				
+	echo 'Swagger File Load risk to InputContainer' 
+      files = findFiles(glob: """${swaggerFile2}""")
+     //echo """${files[0].name} ${files[0].path} ${files[0].directory} ${files[0].length} ${files[0].lastModified}"""
+	 myFile = """${files[0].name}"""
+	 ws = ''
+	echo 'isUnix() = ' + isUnix()
+	if (isUnix()){
+	// Mac /Linux use '/'
+		ws = pwd() + '/Swagger/'
+	}
+	else {
+	// Windows use '\\' Mac /Linux use '/'
+		ws = pwd() + '\\Swagger\\'
+	}
+	
+	// iterate through Swagger files
+	 swaggerFiles = ''
+    for (ii = 0; ii < files.size(); ii++) {
+            echo 'working on ' + """${files[ii].path}"""
+       myFile = """${files[ii].path}"""
+		swaggerFiles = swaggerFiles + '  '+ """-F "file${ii+1}=@${myFile}" """
+	}
+	echo 'swaggerFiles = ' + swaggerFiles
+        // Load Swagger files
+		if (isUnix()){
+		   // Linux / Mac
+			sh(script: """curl -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId}/contents\" -H \"content-type: multipart/form-data\" ${swaggerFiles} """, returnStdout: true)
+		}
+		else{
+			// Windows
+			bat """curl -i -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId}/contents"" -H \"content-type: multipart/form-data\" ${swaggerFiles} """ 
+		   
+	}   
+ 
+    }
+
+    
+    stage('Load RRPair Files for Specific Responses') {
+     // Get RR files downloaded to workspace
+     def files = findFiles(glob: """${filePattern}""")
+     //  def files = findFiles(glob: '**/Data/RRPairs/**account_**-r**.txt')
+	def myFile = """${files[0].path}"""
+	
+	// iterate through files
+    // Build File List example 
+	// -F "file1=@/Applications/CA/DevTest/Projects/Bank v5/Data/rrpair/PayAction-req.txt"
+	// -F "file2=@/Applications/CA/DevTest/Projects/Bank v5/Data/rrpair/PayAction-rsp.txt"
+	def rrFiles = ''
+	for (ii = 0; ii < files.size(); ii++) {
+        echo 'working on ' + """${files[ii].path}"""
+        myFile = """${files[ii].path}"""
+		rrFiles = rrFiles + '  '+ """-F "file${ii+1}=@${myFile}" """
+	} 
+	echo 'rrFiles = ' + rrFiles
+	//	execute command to load all files
+		if (isUnix()){
+		   // Linux / Mac
+			sh(script: """curl -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId}/contents\" -H \"content-type: multipart/form-data\" ${rrFiles} """, returnStdout: true)
+		}
+		else{
+			// Windows
+			bat """curl -i -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId}/contents"" -H \"content-type: multipart/form-data\" ${rrFiles} """ 
+		}   
+
+				
+	echo 'Create Transport Protocol' 
+           // httpRequest same for Windows / Linux / Mac
+			def rspTP = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], requestBody: """{\"typeId\": \"${tPtypeId}\", \"basePath\": \"${tPbasePath}\", \"useGateway\": true, \"hostHeaderPassThrough\": false, \"recordingEndpoint\": {\"host\": \"${tPrecordingEndpointHost}\", \"port\": \"${tPrecordingEndpointPort}\"}, \"targetEndpoint\": {\"host\": \"${tPtargetEndpointHost}\", \"port\": \"${tPtargetEndpointPort}\"}}""", responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId}/transportProtocols"""
+			echo 'Response rspTP= ' + rspTP.content
+            def jsonTP = readJSON text: rspTP.content
+            tpId = jsonTP['id'].toString()
+           echo 'TP sessionId  = ' +  tpId
+				
+	echo 'Process Data InputContainer' 
+           // httpRequest same for Windows / Linux / Mac
+			def rspPD = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], requestBody: """{\"container\": \"${inputContainerId}\" }""", responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputProcessors"""
+			echo 'Response rspPD= ' + rspPD.content
+            def jsonPD = readJSON text: rspPD.content
+            inputProcId = jsonPD['id'].toString()
+           // inputProcStatus = jsonBP['status'].toString()
+           echo 'inputProcId  = ' +  inputProcId
+				
+	echo 'Check inputProcessors Status' 
+           // httpRequest same for Windows / Linux / Mac
+		if(inputProcStatus.contains("IN_PROCESS")) {
+            echo 'Waiting on input Processor'
+		//	sleep 5
+			rspPD = ''
+		    jsonPD = ''
+            try{
+                retry(4) {
+                    rspPD = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputProcessors/${inputProcId}"""
+					jsonPD = readJSON text: rspPD.content
+					inputProcStatus = jsonPD['status'].toString()
+					if (inputProcStatus == 'IN_PROCESS') {
+                        sleep 5
+						throw new Exception()
+                    }
+                    currentBuild.result = "SUCCESS"
+                    println("Job was successful. currentBuild.result: ${currentBuild.result}")
+                }
+            } catch (e) {
+                currentBuild.result = "FAILURE"
+                println("catch exeption. currentBuild.result: ${currentBuild.result}")
+            }
+            }
+				
+	echo 'Delete Input Processor' 
+ 		//	this is just cleanup
+		if (isUnix()){
+		// Linux / Mac
+		sh(script: """curl -X DELETE -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputProcessors/${inputProcId} returnStdout: true\" """)
+		}
+		else {
+			// Windows
+		bat """curl -X DELETE ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputProcessors/${inputProcId}""  -H \"authorization: Basic YWRtaW46YWRtaW4=\" """
+		}
+ 				
+	echo 'Delete Input Container' 
+ 		//	this is just cleanup
+		if (isUnix()){
+		// Linux / Mac
+		sh(script: """curl -X DELETE -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId} returnStdout: true\" """)
+		}
+		else {
+			// Windows
+		bat """curl -X DELETE ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundles/${bundleId}/inputContainers/${inputContainerId}""  -H \"authorization: Basic YWRtaW46YWRtaW4=\" """
+		}
+				
+	echo 'Create Bundle Processor' 
+          // httpRequest same for Windows / Linux / Mac
+			def rspBP = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], requestBody: """{\"sessionId\": \"${sessionId}\", \"bundleId\": \"${bundleId}\" }""", responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}//bundleProcessors"""
+			echo 'Response rspDP= ' + rspBP.content
+            def jsonBP = readJSON text: rspBP.content
+             BundleProcId = jsonBP['id'].toString()
+             BundleProcStatus = jsonBP['status'].toString()
+           echo 'BundleProcId  = ' +  BundleProcId
+           echo 'BundleProcStatus  = ' +  BundleProcStatus
+				
+	echo 'Check Bundle Processor Status' 
+          // httpRequest same for Windows / Linux / Mac
+		if(BundleProcStatus.contains("IN_PROCESS")) {
+            echo 'Waiting on Bundle Processor'
+			sleep 5
+			def rspBPS = ''
+		    def jsonBPS = ''
+            try{
+                retry(3) {
+                    rspBPS = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], requestBody: """{\"sessionId\": \"${sessionId}\", \"bundleId\": \"${bundleId}\" }""", responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}//bundleProcessors/${BundleProcId}"""
+					jsonBPS = readJSON text: rspBPS.content
+					BundleProcStatus = jsonBPS['status'].toString()
+					if (BundleProcStatus == 'IN_PROCESS') {
+                        sleep 5
+						throw new Exception()
+                    }
+                    currentBuild.result = "SUCCESS"
+                    println("Job was successful. currentBuild.result: ${currentBuild.result}")
+                }
+            } catch (e) {
+                currentBuild.result = "FAILURE"
+                println("catch exeption. currentBuild.result: ${currentBuild.result}")
+            }
+            }
+				
+	echo 'Delete Bundle Processor' 
+ 		//	this is just cleanup
+		if (isUnix()){
+		// Linux / Mac
+		sh(script: """curl -X DELETE -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundleProcessors/${BundleProcId} returnStdout: true\" """)
+		}
+		else {
+			// Windows
+		bat """curl -X DELETE ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/bundleProcessors/${BundleProcId}""  -H \"authorization: Basic YWRtaW46YWRtaW4=\"  -H \"Accept: application/json\" """
+		}
+				
+	echo 'Get Data Protocols' 
+          // httpRequest same for Windows / Linux / Mac
+			def rspDP = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId}/transportProtocols/${tpId}/dataProtocols"""
+			echo 'Response rspDP= ' + rspDP.content
+    //        def jsonDP = readJSON text: rspDP.content
+    //        dpId = jsonDP['id'].toString()
+    //       echo 'DP sessionId  = ' +  dpId
+				
+	echo 'Add Data Protocol' 
+          // httpRequest same for Windows / Linux / Mac
+            def dphString = """{\"forRequest\": true, \"typeId\": \"${dataProtocol}\" ,${dphRESTRules}, ${dphUserConfigured} }"""
+            echo 'dphString = ' + dphString
+			def rspDP2 = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], requestBody: """{\"forRequest\": true, \"typeId\": \"${dataProtocol}\" ,${dphRESTRules}  }""", responseHandle: 'NONE', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId}/transportProtocols/${tpId}/dataProtocols"""
+			echo 'Response rspDP2= ' + rspDP2.content
+            def jsonDP2 = readJSON text: rspDP2.content
+            dpId2 = jsonDP2['id'].toString()
+           echo 'DP sessionId  = ' +  dpId2
+
+}
+
+	
+	stage('Create VS MAR File and Deploy') {
+          // httpRequest same for Windows / Linux / Mac
+        def marFile =  """${serviceName}.mar"""
+
+		def rspIC = httpRequest acceptType: 'APPLICATION_ZIP', outputFile: """${serviceName}.mar""", responseHandle: 'LEAVE_OPEN', contentType: 'APPLICATION_JSON', httpMode: 'GET',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId}"""
+		echo 'Create VS Zip= ' + rspIC
+
+	echo 'Delete Transport Protocol' 
+		//	this is just cleanup
+		if (isUnix()){
+		// Linux / Mac
+		sh(script: """curl -X DELETE -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId}/transportProtocols/${tpId} returnStdout: true\" """)
+		}
+		else {
+			// Windows
+		bat """curl -X DELETE ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId}/transportProtocols/${tpId}""  -H \"authorization: Basic YWRtaW46YWRtaW4=\"  -H \"Accept: application/json\" """
+		}
+
+		echo 'Delete Builder Session'
+ 		//	this is just cleanup
+		if (isUnix()){
+		// Linux / Mac
+		sh(script: """curl -X DELETE -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId} returnStdout: true\" """)
+		}
+		else {
+		// Windows
+		bat """curl -X DELETE ""http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/vsBuilderSessions/${sessionId}""  -H \"authorization: Basic YWRtaW46YWRtaW4=\"  -H \"Accept: application/json\" """
+		}
+
+//		}
+
+	
+	
+//    stage('Deploy VS Zip Starts VS')  {
+       def zipFile = """${serviceName}.zip"""
+    //   def marFile =  """${serviceName}.mar"""
+      // Deploy VS using  Jenkins Plugin
+	  svDeployVirtualService host: """${devTestServer}""", marFilesPaths: """${marFile}""", port: '1505', secured: false, tokenCredentialId: '5aec06db-b61e-4df4-a949-673793a6f5c6', useCustomRegistry: true, vseName: """${vseServer}"""
+		// Deploy using REST API
+		/*
+		if (isUnix()){
+		// Linux / Mac
+		sh(script: """curl -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/api/Dcm/VSEs/${vseServer}/actions/deployMar\" -H \"content-type: multipart/form-data\" -F \"file=@${zipFile}\"""", returnStdout: true)
+        }
+		else {
+			// Windows
+		// Windows
+        bat """curl -X POST  ""http://${devTestServer}:1505/api/Dcm/VSEs/${vseServer}/actions/deployMar"" -H \"authorization: Basic YWRtaW46YWRtaW4=\" -H \"content-type: multipart/form-data\" -F file=@${zipFile}""" 
+		}
+		*/
+		}
+
+  
+           
+
+   
+ 
+         stage('Run Test') {
+		// Run CA Application Test using Plugin
+       //   svDeployTest host: """${TestServer2}""", marFilePath: """${testFileMar}""", port: """${svPluginPort}""", secured: false, testType: 'tests', tokenCredentialId: """${myCredentialID}""", useCustomRegistry: true
+		//def testFileMar = 'Tests/SWAGGER_Test_All_01.mar'
+		// Run CA Application Test using REST API
+		if (isUnix()){
+        // Linux / Mac
+			sh(script: """curl -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" \"http://${devTestServer}:1505/lisa-test-invoke/api/v1/tests/run" -H \"content-type: multipart/form-data\" -F \"file=@${testFileMar}\"""", returnStdout: true)
+		}
+		else {
+			bat """curl -X POST -H \"authorization: Basic YWRtaW46YWRtaW4=\" ""http://${devTestServer}:1505/lisa-test-invoke/api/v1/tests/run""  -H \"content-type: multipart/form-data\" -F \"file=@${testFileMar}\"""" 
+		}
+       	sleep sleepTimeTest.toInteger() 
+        }
+   
+   
+   
+   stage('Stop VS'){
+		// Stop Service using Plugin
+    svStopVirtualService host: """${devTestServer}""", port: '1505', secured: false, tokenCredentialId: """${myCredentialID}""", useCustomRegistry: true, vsNames: """${serviceName}""", vseName: """${vseServer}"""   
+		// Stop Service using REST API
+    //def responseStop = httpRequest httpMode:'POST',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], url: """http://${devTestServer}:1505/api/Dcm/VSEs/${vseServer}/${serviceName}/actions/stop"""
+   //echo 'Response Stop= ' + responseStop
+
+  }
+  
+  stage('Get VSE Service List After') {
+        // Get List of  virtual Services
+           // httpRequest same for Windows / Linux / Mac
+			def rspSvcs = httpRequest acceptType: 'APPLICATION_JSON', customHeaders: [[maskValue: false, name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], responseHandle: 'LEAVE_OPEN', url: """http://${devTestServer}:1505/lisa-virtualize-invoke/api/v2/vses/${vseID}/services"""
+            	echo 'Response rspSvcs= ' + rspSvcs.content
+   } 
+  
+     
+stage ("Demo Wait time") {
+    echo """Waiting ${sleepTime} seconds for deployment to complete prior starting smoke testing"""
+    sleep sleepTime.toInteger() // seconds
+}
+
+ stage('UnDeploy VS'){
+		// Undeploy Service using Plugin
+    svUndeployVirtualService host: """${devTestServer}""", port: '1505', secured: false, tokenCredentialId: """${myCredentialID}""", useCustomRegistry: true, vsNames: """${serviceName}""", vseName: """${vseServer}"""   
+		// Undeploy Service using REST API
+  //  def responseDelete = httpRequest httpMode:'DELETE',  customHeaders: [[name: 'Authorization', value: 'Basic YWRtaW46YWRtaW4=']], url: """http://${devTestServer}:1505/api/Dcm/VSEs/${vseServer}/${serviceName}"""
+  //  echo 'Response Delete= ' + responseDelete
+  sleep sleepTime.toInteger() // seconds
+
+ }
+
+ stage('Store Mar File in Github') {
+
+withCredentials([usernamePassword(credentialsId: 'dd8dade7-879b-45c1-ac63-b1972f3a6a62', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+    bat 'git add .'
+    //bat 'git tag -a some_tag3 -m "Jenkins"'
+    bat 'git commit -am  "Updated master'
+    bat  """git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/milka12/DT_Automation01 """
+}
+    
+
+     
+ }
+ 
+    stage('Stop VSE Docker Container') {
+       
+       httpRequest httpMode: 'POST', ignoreSslErrors: true, responseHandle: 'NONE', url: """http://${devTestServer}:4243/containers/mystifying_bhaskara/stop"""
+   }
+
+}
