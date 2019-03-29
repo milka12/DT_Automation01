@@ -1,0 +1,12 @@
+HTTP/1.1 200
+
+{"GetGeneralAgencyMarketSourceResponse": {
+   "MarketSourceInfo":    {
+      "MarketSourceNumber": 11,
+      "MarketSourceDescription": "WRPC"
+   },
+   "ServiceError":    {
+      "ErrorCode": 0,
+      "ErrorDescription": "Success."
+   }
+}}

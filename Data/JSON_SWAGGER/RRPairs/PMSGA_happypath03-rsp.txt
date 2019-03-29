@@ -1,0 +1,19 @@
+HTTP/1.1 200
+
+{"GetGeneralAgencyMarketSourceResponse": {
+   "MarketSourceInfo":    {
+      "MarketSourceNumber": 78,
+      "MarketSourceDescription": "BMAL"
+   },
+   "ServiceError":    {
+      "ErrorCode": 0,
+      "ErrorDescription": "Success."
+   }
+}}
+
+
+
+
+
+
+

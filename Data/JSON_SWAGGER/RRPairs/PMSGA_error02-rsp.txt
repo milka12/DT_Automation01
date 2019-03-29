@@ -1,0 +1,12 @@
+HTTP/1.1 200
+
+{"GetGeneralAgencyMarketSourceResponse": {
+   "MarketSourceInfo": null,
+   "ServiceError":    {
+      "ErrorCode": 2,
+      "ErrorDescription": "System assign number must be of 7 digits."
+   }
+}}
+
+
+
