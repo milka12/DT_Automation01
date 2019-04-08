@@ -1,7 +1,0 @@
-{"GetGeneralAgencyMarketSourceResponse": {
-   "MarketSourceInfo": null,
-   "ServiceError":    {
-      "ErrorCode": 1,
-      "ErrorDescription": "Either system assign number or national producer number or tax number must be provided."
-   }
-}}
