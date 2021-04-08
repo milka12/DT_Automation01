@@ -1,0 +1,23 @@
+{
+	"virtualService": {
+		"version": "3",
+		"name": "{{serviceName}}",
+		"description": "Service from SWAGGER by Invoke API V3",
+		"status": ""
+	},
+	"transportProtocol": {
+		"typeId": "HTTP",
+		"basePath": "/",
+		"useGateway": true,
+		"hostHeaderPassThrough": false,
+      "recordingEndpoint":{  
+         "useSSL":false,
+         "host":"",
+         "port":"{{tPrecordingEndpointPort}}"
+	}
+	},
+	"dataProtocol" : {
+		"forRequest":true,
+		"typeId":"RESTDPH"
+	},
+}
