@@ -1,7 +1,7 @@
 {
 	"virtualService": {
 		"version": "3",
-		"name": "DemoVS3",
+		"name": "DemoVS3-Acct-Risk",
 		"description": "Service from SWAGGER by Invoke API V3",
 		"status": ""
 	},
