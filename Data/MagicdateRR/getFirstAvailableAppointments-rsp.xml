@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8'?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <msg2007:WFContext xmlns:msg2007="http://service.wellsfargo.com/entity/message/2007/">
+      <messageId>b5caed9b-51e4-4ad4-b0ac-1e39da418a20</messageId>
+      <refToMessageId>b5caed9b-51e4-4ad4-b0ac-1e39da418a20</refToMessageId>
+      <creationTimestamp>2021-09-21T03:14:34.216-07:00</creationTimestamp>
+      <applicationId>CMINT</applicationId>
+      <hostName>165.126.181.117</hostName>
+      <originator>
+        <originatorId>MAA</originatorId>
+        <originatorIdType>WEB</originatorIdType>
+      </originator>
+      <initiator>
+        <initiatorId>MAA</initiatorId>
+        <initiatorIdType>WEB</initiatorIdType>
+      </initiator>
+    </msg2007:WFContext>
+  </soap:Header>
+  <soap:Body>
+    <getFirstAvailableAppointmentsMessage:getFirstAvailableAppointmentsResponse xmlns:getFirstAvailableAppointmentsMessage="http://service.wellsfargo.com/provider/emaa/appointments/getFirstAvailableAppointments/2012/">
+      <info>
+        <dateTimeSlotList>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-21T14:30:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-22T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-23T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-24T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-25T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-27T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-28T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-29T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-09-30T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-01T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-02T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-04T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-05T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-06T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-07T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-08T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-09T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-11T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-12T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-13T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-14T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-15T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-16T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-18T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-19T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-20T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-21T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-22T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-23T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-25T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-26T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-27T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-28T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-29T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-10-30T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+          <dTimeSlot:dateTimeSlot xmlns:dTimeSlot="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/">
+            <appointmentSlotTime>2021-11-01T14:00:00.000Z</appointmentSlotTime>
+            <lengthinMin>60</lengthinMin>
+            <resourceExternalIdList>
+              <resourceExternalId/>
+            </resourceExternalIdList>
+            <slotStatus>AVAILABLE</slotStatus>
+          </dTimeSlot:dateTimeSlot>
+        </dateTimeSlotList>
+      </info>
+    </getFirstAvailableAppointmentsMessage:getFirstAvailableAppointmentsResponse>
+  </soap:Body>
+</soap:Envelope>

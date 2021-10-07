@@ -1,0 +1,33 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header>
+        <ns2:WFContext xmlns:ns2="http://service.wellsfargo.com/entity/message/2007/">
+            <messageId>b5caed9b-51e4-4ad4-b0ac-1e39da418a20</messageId>
+            <creationTimestamp>2021-09-21T03:14:34.216-07:00</creationTimestamp>
+            <applicationId>KU</applicationId>
+            <hostName>165.126.181.117</hostName>
+            <originator>
+                <originatorId>MAA</originatorId>
+                <originatorIdType>WEB</originatorIdType>
+            </originator>
+            <initiator>
+                <initiatorId>MAA</initiatorId>
+                <initiatorIdType>WEB</initiatorIdType>
+            </initiator>
+        </ns2:WFContext>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns5:getFirstAvailableAppointments xmlns:ns3="http://service.wellsfargo.com/entity/message/2007/" xmlns:ns4="http://service.wellsfargo.com/provider/emaa/appointments/datetimeslot/" xmlns:ns5="http://service.wellsfargo.com/provider/emaa/appointments/getFirstAvailableAppointments/2012/">
+            <ns3:behaviorVersion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            <appointmentCriteria>
+                <activityExternalId>NEWCONSCARD</activityExternalId>
+                <appointmentDurationMin>60</appointmentDurationMin>
+                <locationExternalId>WF09662</locationExternalId>
+                <numberOfAttendees>1</numberOfAttendees>
+                <programExternalId>1</programExternalId>
+                <setupDurationMin>0</setupDurationMin>
+            </appointmentCriteria>
+            <startDateTime>2021-09-21T11:14:34.195Z</startDateTime>
+            <endDateTime>2021-11-30T21:14:34.216Z</endDateTime>
+        </ns5:getFirstAvailableAppointments>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
