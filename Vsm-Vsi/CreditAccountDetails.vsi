@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceImage buildNumber="10.6.0.1011" created="2020-10-14.22:24:07.548" id="224" lastModified="2020-10-14.22:24:07.592" name="CreditAccountDetails" version="10.6.0">
+<st>
+<t id="220" nd="true">
+<sp>
+<t id="227">
+<rq id="228" op="POST /credit/api/v1/auth/" tl="EXACT">
+<ag>
+<p n="username" t="arg:EQUALS;false;;;;">admin@demo.io</p>
+<p n="password" t="arg:EQUALS;false;;;;">Demo123!</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">credit</p>
+<p n="HTTP-Segment-Attr-1">api</p>
+<p n="HTTP-Segment-Attr-2">v1</p>
+<p n="HTTP-Segment-Attr-3">auth</p>
+</at>
+<m>
+<p n="HTTP-Method">POST</p>
+<p n="HTTP-URI">/credit/api/v1/auth?username=admin@demo.io&amp;password=Demo123!</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Accept">application/json</p>
+<p n="Content-Type">application/json</p>
+<p n="User-Agent">Java/11.0.5</p>
+<p n="Host">10.138.0.125:3500</p>
+<p n="Content-Length">0</p>
+<p n="matchedRule">POST /credit/api/v1/auth/</p>
+</m>
+</rq>
+<rs>
+<rp id="229" t="890">
+<m>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text"/>
+<p n="X-Content-Type-Options">nosniff</p>
+<p n="X-XSS-Protection">1; mode=block</p>
+<p n="Cache-Control">no-cache, no-store, max-age=0, must-revalidate</p>
+<p n="Pragma">no-cache</p>
+<p n="Expires">0</p>
+<p n="Content-Type">application/json;charset=UTF-8</p>
+<p n="Date">{{=httpNow()}}</p>
+</m>
+<bd chs="UTF-8">{"authToken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBkZW1vLmlvIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BUEkifSx7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYwMjcxNDA1MywiZXhwIjoxNjAyNzE3NjUzfQ.iiGY9Xt8Homu6qzfgCgkcQW1yIF6Taob8ZaAtfp0LJE"}</bd>
+</rp>
+</rs>
+</t>
+</sp>
+<rq id="230" op="POST /credit/api/v1/auth/" tl="SIGNATURE">
+<ag>
+<p n="username" t="arg:EQUALS;false;;;;">admin@demo.io</p>
+<p n="password" t="arg:EQUALS;false;;;;">Demo123!</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">credit</p>
+<p n="HTTP-Segment-Attr-1">api</p>
+<p n="HTTP-Segment-Attr-2">v1</p>
+<p n="HTTP-Segment-Attr-3">auth</p>
+</at>
+<m>
+<p n="HTTP-Method">POST</p>
+<p n="HTTP-URI">/credit/api/v1/auth?username=admin@demo.io&amp;password=Demo123!</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Accept">application/json</p>
+<p n="Content-Type">application/json</p>
+<p n="User-Agent">Java/11.0.5</p>
+<p n="Host">10.138.0.125:3500</p>
+<p n="Content-Length">0</p>
+<p n="matchedRule">POST /credit/api/v1/auth/</p>
+</m>
+</rq>
+<rs>
+<rp id="231" t="890">
+<m>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text"/>
+<p n="X-Content-Type-Options">nosniff</p>
+<p n="X-XSS-Protection">1; mode=block</p>
+<p n="Cache-Control">no-cache, no-store, max-age=0, must-revalidate</p>
+<p n="Pragma">no-cache</p>
+<p n="Expires">0</p>
+<p n="Content-Type">application/json;charset=UTF-8</p>
+<p n="Date">{{=httpNow()}}</p>
+</m>
+<bd chs="UTF-8">{"authToken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBkZW1vLmlvIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BUEkifSx7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYwMjcxNDA1MywiZXhwIjoxNjAyNzE3NjUzfQ.iiGY9Xt8Homu6qzfgCgkcQW1yIF6Taob8ZaAtfp0LJE"}</bd>
+</rp>
+</rs>
+</t>
+<t id="221" nd="true">
+<sp>
+<t id="232">
+<rq id="233" op="GET /credit/api/v1/credit/card/{URLPARAM0}/" tl="EXACT">
+<ag>
+<p n="URLPARAM0" t="arg:EQUALS;false;;;;">36</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">credit</p>
+<p n="HTTP-Segment-Attr-1">api</p>
+<p n="HTTP-Segment-Attr-2">v1</p>
+<p n="HTTP-Segment-Attr-3">credit</p>
+<p n="HTTP-Segment-Attr-4">card</p>
+<p n="HTTP-Segment-Attr-5">36</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/credit/api/v1/credit/card/36</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Accept">application/json</p>
+<p n="Authorization">Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBkZW1vLmlvIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BUEkifSx7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYwMjcxNDA1MywiZXhwIjoxNjAyNzE3NjUzfQ.iiGY9Xt8Homu6qzfgCgkcQW1yIF6Taob8ZaAtfp0LJE</p>
+<p n="Content-Type">application/json</p>
+<p n="User-Agent">Java/11.0.5</p>
+<p n="Host">10.138.0.125:3500</p>
+<p n="matchedRule">GET /credit/api/v1/credit/card/{URLPARAM0}/</p>
+</m>
+</rq>
+<rs>
+<rp id="234" t="434">
+<m>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text"/>
+<p n="X-Content-Type-Options">nosniff</p>
+<p n="X-XSS-Protection">1; mode=block</p>
+<p n="Cache-Control">no-cache, no-store, max-age=0, must-revalidate</p>
+<p n="Pragma">no-cache</p>
+<p n="Expires">0</p>
+<p n="Content-Type">application/json;charset=UTF-8</p>
+<p n="Date">{{=httpNow()}}</p>
+</m>
+<bd chs="UTF-8">{"id":36,"cardNumber":"4378269315009016","account":{"id":35,"accountNumber":598625001,"dateOpened":"2020-10-14T10:21","dateClosed":null},"dateValid":1020,"dateExpire":1023,"cvv":465,"creditLimit":2500.00,"apr":26.24,"currentBalance":0.00,"availableBalance":2500.00}</bd>
+</rp>
+</rs>
+</t>
+</sp>
+<rq id="235" op="GET /credit/api/v1/credit/card/{URLPARAM0}/" tl="SIGNATURE">
+<ag>
+<p n="URLPARAM0" t="arg:EQUALS;false;;;;">36</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">credit</p>
+<p n="HTTP-Segment-Attr-1">api</p>
+<p n="HTTP-Segment-Attr-2">v1</p>
+<p n="HTTP-Segment-Attr-3">credit</p>
+<p n="HTTP-Segment-Attr-4">card</p>
+<p n="HTTP-Segment-Attr-5">36</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/credit/api/v1/credit/card/36</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Accept">application/json</p>
+<p n="Authorization">Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBkZW1vLmlvIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BUEkifSx7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYwMjcxNDA1MywiZXhwIjoxNjAyNzE3NjUzfQ.iiGY9Xt8Homu6qzfgCgkcQW1yIF6Taob8ZaAtfp0LJE</p>
+<p n="Content-Type">application/json</p>
+<p n="User-Agent">Java/11.0.5</p>
+<p n="Host">10.138.0.125:3500</p>
+<p n="matchedRule">GET /credit/api/v1/credit/card/{URLPARAM0}/</p>
+</m>
+</rq>
+<rs>
+<rp id="236" t="434">
+<m>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text"/>
+<p n="X-Content-Type-Options">nosniff</p>
+<p n="X-XSS-Protection">1; mode=block</p>
+<p n="Cache-Control">no-cache, no-store, max-age=0, must-revalidate</p>
+<p n="Pragma">no-cache</p>
+<p n="Expires">0</p>
+<p n="Content-Type">application/json;charset=UTF-8</p>
+<p n="Date">{{=httpNow()}}</p>
+</m>
+<bd chs="UTF-8">{"id":36,"cardNumber":"4378269315009016","account":{"id":35,"accountNumber":598625001,"dateOpened":"2020-10-14T10:21","dateClosed":null},"dateValid":1020,"dateExpire":1023,"cvv":465,"creditLimit":2500.00,"apr":26.24,"currentBalance":0.00,"availableBalance":2500.00}</bd>
+</rp>
+</rs>
+</t>
+<t id="222" nd="true">
+<sp>
+<t id="237">
+<rq id="238" op="GET /credit/api/v1/credit/card/{URLPARAM0}/{URLPARAM1}/" tl="EXACT">
+<ag>
+<p n="URLPARAM0" t="arg:EQUALS;false;;;;">36</p>
+<p n="URLPARAM1" t="arg:EQUALS;false;;;;">billing</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">credit</p>
+<p n="HTTP-Segment-Attr-1">api</p>
+<p n="HTTP-Segment-Attr-2">v1</p>
+<p n="HTTP-Segment-Attr-3">credit</p>
+<p n="HTTP-Segment-Attr-4">card</p>
+<p n="HTTP-Segment-Attr-5">36</p>
+<p n="HTTP-Segment-Attr-6">billing</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/credit/api/v1/credit/card/36/billing</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Accept">application/json</p>
+<p n="Authorization">Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBkZW1vLmlvIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BUEkifSx7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYwMjcxNDA1MywiZXhwIjoxNjAyNzE3NjUzfQ.iiGY9Xt8Homu6qzfgCgkcQW1yIF6Taob8ZaAtfp0LJE</p>
+<p n="Content-Type">application/json</p>
+<p n="User-Agent">Java/11.0.5</p>
+<p n="Host">10.138.0.125:3500</p>
+<p n="matchedRule">GET /credit/api/v1/credit/card/{URLPARAM0}/{URLPARAM1}/</p>
+</m>
+</rq>
+<rs>
+<rp id="239" t="93">
+<m>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text"/>
+<p n="X-Content-Type-Options">nosniff</p>
+<p n="X-XSS-Protection">1; mode=block</p>
+<p n="Cache-Control">no-cache, no-store, max-age=0, must-revalidate</p>
+<p n="Pragma">no-cache</p>
+<p n="Expires">0</p>
+<p n="Content-Type">application/json;charset=UTF-8</p>
+<p n="Date">{{=httpNow()}}</p>
+</m>
+<bd chs="UTF-8">{"id":38,"lastStatementDate":null,"paymentDueDate":"2020-11-14T10:21","lastPaymentDate":null,"minimumPaymentDue":0.00,"lastStatmentBalance":0.00,"lastPaymentMade":0.00}</bd>
+</rp>
+</rs>
+</t>
+<t id="223">
+<rq id="240" op="GET /credit/api/v1/credit/card/{URLPARAM0}/{URLPARAM1}/" tl="EXACT">
+<ag>
+<p n="URLPARAM0" t="arg:EQUALS;false;;;;">36</p>
+<p n="URLPARAM1" t="arg:EQUALS;false;;;;">transactions</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">credit</p>
+<p n="HTTP-Segment-Attr-1">api</p>
+<p n="HTTP-Segment-Attr-2">v1</p>
+<p n="HTTP-Segment-Attr-3">credit</p>
+<p n="HTTP-Segment-Attr-4">card</p>
+<p n="HTTP-Segment-Attr-5">36</p>
+<p n="HTTP-Segment-Attr-6">transactions</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/credit/api/v1/credit/card/36/transactions</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Accept">application/json</p>
+<p n="Authorization">Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBkZW1vLmlvIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BUEkifSx7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYwMjcxNDA1MywiZXhwIjoxNjAyNzE3NjUzfQ.iiGY9Xt8Homu6qzfgCgkcQW1yIF6Taob8ZaAtfp0LJE</p>
+<p n="Content-Type">application/json</p>
+<p n="User-Agent">Java/11.0.5</p>
+<p n="Host">10.138.0.125:3500</p>
+<p n="matchedRule">GET /credit/api/v1/credit/card/{URLPARAM0}/{URLPARAM1}/</p>
+</m>
+</rq>
+<rs>
+<rp id="241" t="50">
+<m>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text"/>
+<p n="X-Content-Type-Options">nosniff</p>
+<p n="X-XSS-Protection">1; mode=block</p>
+<p n="Cache-Control">no-cache, no-store, max-age=0, must-revalidate</p>
+<p n="Pragma">no-cache</p>
+<p n="Expires">0</p>
+<p n="Content-Type">application/json;charset=UTF-8</p>
+<p n="Date">{{=httpNow()}}</p>
+</m>
+<bd chs="UTF-8">[]</bd>
+</rp>
+</rs>
+</t>
+</sp>
+<rq id="242" op="GET /credit/api/v1/credit/card/{URLPARAM0}/{URLPARAM1}/" tl="SIGNATURE">
+<ag>
+<p n="URLPARAM0" t="arg:EQUALS;false;;;;">36</p>
+<p n="URLPARAM1" t="arg:EQUALS;false;;;;">billing</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">credit</p>
+<p n="HTTP-Segment-Attr-1">api</p>
+<p n="HTTP-Segment-Attr-2">v1</p>
+<p n="HTTP-Segment-Attr-3">credit</p>
+<p n="HTTP-Segment-Attr-4">card</p>
+<p n="HTTP-Segment-Attr-5">36</p>
+<p n="HTTP-Segment-Attr-6">billing</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/credit/api/v1/credit/card/36/billing</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Accept">application/json</p>
+<p n="Authorization">Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBkZW1vLmlvIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BUEkifSx7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYwMjcxNDA1MywiZXhwIjoxNjAyNzE3NjUzfQ.iiGY9Xt8Homu6qzfgCgkcQW1yIF6Taob8ZaAtfp0LJE</p>
+<p n="Content-Type">application/json</p>
+<p n="User-Agent">Java/11.0.5</p>
+<p n="Host">10.138.0.125:3500</p>
+<p n="matchedRule">GET /credit/api/v1/credit/card/{URLPARAM0}/{URLPARAM1}/</p>
+</m>
+</rq>
+<rs>
+<rp id="243" t="93">
+<m>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text"/>
+<p n="X-Content-Type-Options">nosniff</p>
+<p n="X-XSS-Protection">1; mode=block</p>
+<p n="Cache-Control">no-cache, no-store, max-age=0, must-revalidate</p>
+<p n="Pragma">no-cache</p>
+<p n="Expires">0</p>
+<p n="Content-Type">application/json;charset=UTF-8</p>
+<p n="Date">{{=httpNow()}}</p>
+</m>
+<bd chs="UTF-8">{"id":38,"lastStatementDate":null,"paymentDueDate":"2020-11-14T10:21","lastPaymentDate":null,"minimumPaymentDue":0.00,"lastStatmentBalance":0.00,"lastPaymentMade":0.00}</bd>
+</rp>
+</rs>
+</t>
+</st>
+<ucrr>
+<rp id="226" t="0">
+<m>
+<p n="HTTP-Response-Code">404</p>
+<p n="HTTP-Response-Code-Text">Not Found</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="Content-Type">text/html</p>
+</m>
+<bd chs="UTF-8">&lt;html&gt;
+    &lt;head&gt;&lt;title&gt;404 Not Found&lt;/title&gt;&lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Not Found&lt;/h1&gt;
+        &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;
+        &lt;hr/&gt;
+        &lt;p&gt;&lt;i&gt;The DevTest VSE service could not match your request to a recorded request.&amp;nbsp; Consider expanding your service image.&lt;/i&gt;&lt;/p&gt;
+        &lt;br/&gt;&lt;font size="-2"&gt;Produced by a DevTest virtualized web server.&lt;/font&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</bd>
+</rp>
+</ucrr>
+<usrr>
+<rp id="225" t="0">
+<m>
+<p n="HTTP-Response-Code">404</p>
+<p n="HTTP-Response-Code-Text">Not Found</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="Content-Type">text/html</p>
+</m>
+<bd chs="UTF-8">&lt;html&gt;
+    &lt;head&gt;&lt;title&gt;404 Not Found&lt;/title&gt;&lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Not Found&lt;/h1&gt;
+        &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;
+        &lt;hr/&gt;
+        &lt;p&gt;&lt;i&gt;The DevTest VSE service could not match your request to a recorded request.&amp;nbsp; Consider expanding your service image.&lt;/i&gt;&lt;/p&gt;
+        &lt;br/&gt;&lt;font size="-2"&gt;Produced by a DevTest virtualized web server.&lt;/font&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</bd>
+</rp>
+</usrr>
+</serviceImage>

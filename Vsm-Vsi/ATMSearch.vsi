@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+
+<serviceImage id="499" name="ATMSearch" created="2020-04-07.15:12:19.243" lastModified="2022-08-10.21:44:50.720" version="10.7.2" buildNumber="10.7.2.176">
+<st>
+<t id="498" nd="true">
+<sp>
+<t id="502">
+<rq id="503" op="GET /v3.1/nodes/atms/" tl="EXACT">
+<ag>
+<p n="zip" t="arg:EQUALS;true;;;;;">11749</p>
+<p n="radius" t="arg:EQUALS;false;;;;;">10</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">v3.1</p>
+<p n="HTTP-Segment-Attr-1">nodes</p>
+<p n="HTTP-Segment-Attr-2">atms</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/v3.1/nodes/atms?zip=11749&amp;radius=10</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="matchedRule">GET /v3.1/nodes/atms/</p>
+</m>
+</rq>
+<rs>
+<rp id="2" t="0">
+<m>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text">OK</p>
+<p n="Content-Type">application/json</p>
+</m>
+<bd chs="UTF-8">{&#13;&#10;    &quot;atms&quot;: [&#13;&#10;        {&#13;&#10;            &quot;atmLocation&quot;: {&#13;&#10;                &quot;address&quot;: {&#13;&#10;                    &quot;city&quot;: &quot;ISLANDIA&quot;,&#13;&#10;                    &quot;country&quot;: &quot;USA&quot;,&#13;&#10;                    &quot;postalCode&quot;: &quot;{{=request_zip;/*11749*/}}&quot;,&#13;&#10;                    &quot;state&quot;: &quot;NY&quot;,&#13;&#10;                    &quot;street&quot;: &quot;1700 VETERANS HIGHWAY&quot;&#13;&#10;                },&#13;&#10;                &quot;coordinates&quot;: {&#13;&#10;                    &quot;latitude&quot;: 40.805604,&#13;&#10;                    &quot;longitude&quot;: -73.181343&#13;&#10;                },&#13;&#10;                &quot;id&quot;: &quot;848936&quot;,&#13;&#10;                &quot;isAvailable24Hours&quot;: true,&#13;&#10;                &quot;isDepositAvailable&quot;: false,&#13;&#10;                &quot;isHandicappedAccessible&quot;: false,&#13;&#10;                &quot;isOffPremise&quot;: true,&#13;&#10;                &quot;isSeasonal&quot;: false,&#13;&#10;                &quot;languageType&quot;: null,&#13;&#10;                &quot;locationDescription&quot;: &quot;1700 VETERANS HIGHWAY,ISLANDIA,NY,{{=request_zip;/*11749*/}},USA&quot;,&#13;&#10;                &quot;logoName&quot;: &quot;711&quot;,&#13;&#10;                &quot;name&quot;: &quot;7ELEVEN-FCTI&quot;&#13;&#10;            },&#13;&#10;            &quot;distance&quot;: 0.5843634867457268&#13;&#10;        }&#13;&#10;    ],&#13;&#10;    &quot;atms_count&quot;: 1,&#13;&#10;    &quot;error_code&quot;: &quot;0&quot;,&#13;&#10;    &quot;http_code&quot;: &quot;200&quot;,&#13;&#10;    &quot;limit&quot;: 1,&#13;&#10;    &quot;page&quot;: 1,&#13;&#10;    &quot;page_count&quot;: 1,&#13;&#10;    &quot;success&quot;: true&#13;&#10;}</bd>
+</rp>
+</rs>
+</t>
+<t id="506">
+<rq id="507" op="GET /v3.1/nodes/atms/" tl="EXACT">
+<ag>
+<p n="zip" t="arg:EQUALS;true;;;;;">94203</p>
+<p n="radius" t="arg:ANY;false;;;;;">10</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">v3.1</p>
+<p n="HTTP-Segment-Attr-1">nodes</p>
+<p n="HTTP-Segment-Attr-2">atms</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/v3.1/nodes/atms?zip=11749&amp;radius=10</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="matchedRule">GET /v3.1/nodes/atms/</p>
+</m>
+</rq>
+<rs>
+<rp id="508" t="0">
+<m>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text">OK</p>
+<p n="Content-Type">application/json</p>
+</m>
+<bd chs="UTF-8">{&#13;&#10;    &quot;atms&quot;: [&#13;&#10;        {&#13;&#10;            &quot;atmLocation&quot;: {&#13;&#10;                &quot;address&quot;: {&#13;&#10;                    &quot;city&quot;: &quot;San Francisco&quot;,&#13;&#10;                    &quot;country&quot;: &quot;USA&quot;,&#13;&#10;                    &quot;postalCode&quot;: &quot;94114&quot;,&#13;&#10;                    &quot;state&quot;: &quot;CA&quot;,&#13;&#10;                    &quot;street&quot;: &quot;443 Castro Street&quot;&#13;&#10;                },&#13;&#10;                &quot;coordinates&quot;: {&#13;&#10;                    &quot;latitude&quot;: 37.761746,&#13;&#10;                    &quot;longitude&quot;: -122.435024&#13;&#10;                },&#13;&#10;                &quot;id&quot;: &quot;818850&quot;,&#13;&#10;                &quot;isAvailable24Hours&quot;: true,&#13;&#10;                &quot;isDepositAvailable&quot;: true,&#13;&#10;                &quot;isHandicappedAccessible&quot;: false,&#13;&#10;                &quot;isOffPremise&quot;: false,&#13;&#10;                &quot;isSeasonal&quot;: false,&#13;&#10;                &quot;languageType&quot;: null,&#13;&#10;                &quot;locationDescription&quot;: &quot;US BANK CASTRO&quot;,&#13;&#10;                &quot;logoName&quot;: &quot;PAS&quot;,&#13;&#10;                &quot;name&quot;: &quot;U.S. Bank Castro&quot;&#13;&#10;            },&#13;&#10;            &quot;distance&quot;: 0.4101105159902258&#13;&#10;        },&#13;&#10;        {&#13;&#10;            &quot;atmLocation&quot;: {&#13;&#10;                &quot;address&quot;: {&#13;&#10;                    &quot;city&quot;: &quot;San Francisco&quot;,&#13;&#10;                    &quot;country&quot;: &quot;USA&quot;,&#13;&#10;                    &quot;postalCode&quot;: &quot;94110&quot;,&#13;&#10;                    &quot;state&quot;: &quot;CA&quot;,&#13;&#10;                    &quot;street&quot;: &quot;2601 Mission Street&quot;&#13;&#10;                },&#13;&#10;                &quot;coordinates&quot;: {&#13;&#10;                    &quot;latitude&quot;: 37.755035,&#13;&#10;                    &quot;longitude&quot;: -122.41803&#13;&#10;                },&#13;&#10;                &quot;id&quot;: &quot;819134&quot;,&#13;&#10;                &quot;isAvailable24Hours&quot;: true,&#13;&#10;                &quot;isDepositAvailable&quot;: true,&#13;&#10;                &quot;isHandicappedAccessible&quot;: false,&#13;&#10;                &quot;isOffPremise&quot;: false,&#13;&#10;                &quot;isSeasonal&quot;: false,&#13;&#10;                &quot;languageType&quot;: null,&#13;&#10;                &quot;locationDescription&quot;: &quot;US BANK 22ND &amp; MISSION&quot;,&#13;&#10;                &quot;logoName&quot;: &quot;PAS&quot;,&#13;&#10;                &quot;name&quot;: &quot;U.S. Bank 22nd &amp; Mission Street&quot;&#13;&#10;            },&#13;&#10;            &quot;distance&quot;: 0.7987523536486233&#13;&#10;        }&#13;&#10;    ],&#13;&#10;    &quot;atms_count&quot;: 2,&#13;&#10;    &quot;error_code&quot;: &quot;0&quot;,&#13;&#10;    &quot;http_code&quot;: &quot;200&quot;,&#13;&#10;    &quot;limit&quot;: 20,&#13;&#10;    &quot;page&quot;: 1,&#13;&#10;    &quot;page_count&quot;: 1,&#13;&#10;    &quot;success&quot;: true&#13;&#10;}</bd>
+</rp>
+</rs>
+</t>
+<t id="509">
+<rq id="510" op="GET /v3.1/nodes/atms/" tl="EXACT">
+<ag>
+<p n="zip" t="arg:EQUALS;true;;;;;">12345</p>
+<p n="radius" t="arg:ANY;false;;;;;">10</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">v3.1</p>
+<p n="HTTP-Segment-Attr-1">nodes</p>
+<p n="HTTP-Segment-Attr-2">atms</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/v3.1/nodes/atms?zip=11749&amp;radius=10</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="matchedRule">GET /v3.1/nodes/atms/</p>
+</m>
+</rq>
+<rs>
+<rp id="511" t="0">
+<m>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text">OK</p>
+<p n="Content-Type">application/json</p>
+</m>
+<bd chs="UTF-8">{&#13;&#10;    &quot;atms&quot;: [],&#13;&#10;    &quot;atms_count&quot;: 0,&#13;&#10;    &quot;error_code&quot;: &quot;0&quot;,&#13;&#10;    &quot;http_code&quot;: &quot;200&quot;,&#13;&#10;    &quot;limit&quot;: 20,&#13;&#10;    &quot;page&quot;: 1,&#13;&#10;    &quot;page_count&quot;: 0,&#13;&#10;    &quot;success&quot;: true&#13;&#10;}</bd>
+</rp>
+</rs>
+</t>
+<t id="512">
+<rq id="513" op="GET /v3.1/nodes/atms/" tl="EXACT">
+<ag>
+<p n="zip" t="arg:EQUALS;true;;;;;">54321</p>
+<p n="radius" t="arg:ANY;false;;;;;">10</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">v3.1</p>
+<p n="HTTP-Segment-Attr-1">nodes</p>
+<p n="HTTP-Segment-Attr-2">atms</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/v3.1/nodes/atms?zip=11749&amp;radius=10</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="matchedRule">GET /v3.1/nodes/atms/</p>
+</m>
+</rq>
+<rs>
+<rp id="514" t="0">
+<m>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="HTTP-Response-Code">404</p>
+<p n="HTTP-Response-Code-Text">Not Found</p>
+<p n="Content-Type">application/json</p>
+</m>
+</rp>
+</rs>
+</t>
+<t id="5">
+<rq id="515" op="GET /v3.1/nodes/atms/" tl="EXACT">
+<ag>
+<p n="zip" t="arg:EQUALS;true;;;;;">94205</p>
+<p n="radius" t="arg:ANY;false;;;;;">10</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">v3.1</p>
+<p n="HTTP-Segment-Attr-1">nodes</p>
+<p n="HTTP-Segment-Attr-2">atms</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/v3.1/nodes/atms?zip=11749&amp;radius=10</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="matchedRule">GET /v3.1/nodes/atms/</p>
+</m>
+</rq>
+<rs>
+<rp id="516" t="0">
+<m>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="HTTP-Response-Code">500</p>
+<p n="HTTP-Response-Code-Text">Internal Server Error</p>
+<p n="Content-Type">application/json</p>
+</m>
+</rp>
+</rs>
+</t>
+</sp>
+<rq id="504" op="GET /v3.1/nodes/atms/" tl="SIGNATURE">
+<ag>
+<p n="zip" t="arg:EQUALS;true;;;;;">11749</p>
+<p n="radius" t="arg:EQUALS;false;;;;;">10</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">v3.1</p>
+<p n="HTTP-Segment-Attr-1">nodes</p>
+<p n="HTTP-Segment-Attr-2">atms</p>
+</at>
+<m>
+<p n="HTTP-Method">GET</p>
+<p n="HTTP-URI">/v3.1/nodes/atms?zip=11749&amp;radius=10</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="matchedRule">GET /v3.1/nodes/atms/</p>
+</m>
+</rq>
+<rs>
+<rp id="505" t="0">
+<m>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text">OK</p>
+<p n="Content-Type">application/json</p>
+</m>
+<bd chs="UTF-8">{&quot;atms&quot;:[{&quot;atmLocation&quot;:{&quot;address&quot;:{&quot;city&quot;:&quot;ISLANDIA&quot;,&quot;country&quot;:&quot;USA&quot;,&quot;postalCode&quot;:&quot;{{=request_zip;/*11749*/}}&quot;,&quot;state&quot;:&quot;NY&quot;,&quot;street&quot;:&quot;1700 VETERANS HIGHWAY&quot;},&quot;coordinates&quot;:{&quot;latitude&quot;:40.805604,&quot;longitude&quot;:-73.181343},&quot;id&quot;:&quot;848936&quot;,&quot;isAvailable24Hours&quot;:true,&quot;isDepositAvailable&quot;:false,&quot;isHandicappedAccessible&quot;:false,&quot;isOffPremise&quot;:true,&quot;isSeasonal&quot;:false,&quot;languageType&quot;:null,&quot;locationDescription&quot;:&quot;1700 VETERANS HIGHWAY,ISLANDIA,NY,{{=request_zip;/*11749*/}},USA&quot;,&quot;logoName&quot;:&quot;711&quot;,&quot;name&quot;:&quot;7ELEVEN-FCTI&quot;},&quot;distance&quot;:0.5843634867457268}],&quot;atms_count&quot;:1,&quot;error_code&quot;:&quot;0&quot;,&quot;http_code&quot;:&quot;200&quot;,&quot;limit&quot;:1,&quot;page&quot;:1,&quot;page_count&quot;:1,&quot;success&quot;:true}</bd>
+</rp>
+</rs>
+</t>
+</st>
+<ucrr>
+<rp id="501" t="0">
+<m>
+<p n="HTTP-Response-Code">404</p>
+<p n="HTTP-Response-Code-Text">Not Found</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="Content-Type">text/html</p>
+</m>
+<bd chs="UTF-8">&lt;html&gt;&#10;    &lt;head&gt;&lt;title&gt;404 Not Found&lt;/title&gt;&lt;/head&gt;&#10;    &lt;body&gt;&#10;        &lt;h1&gt;Not Found&lt;/h1&gt;&#10;        &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;&#10;        &lt;hr/&gt;&#10;        &lt;p&gt;&lt;i&gt;The DevTest VSE service could not match your request to a recorded request.&amp;nbsp; Consider expanding your service image.&lt;/i&gt;&lt;/p&gt;&#10;        &lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;Produced by a DevTest virtualized web server.&lt;/font&gt;&#10;    &lt;/body&gt;&#10;&lt;/html&gt;&#10;</bd>
+</rp>
+</ucrr>
+<usrr>
+<rp id="500" t="0">
+<m>
+<p n="HTTP-Response-Code">404</p>
+<p n="HTTP-Response-Code-Text">Not Found</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="Content-Type">text/html</p>
+</m>
+<bd chs="UTF-8">&lt;html&gt;&#10;    &lt;head&gt;&lt;title&gt;404 Not Found&lt;/title&gt;&lt;/head&gt;&#10;    &lt;body&gt;&#10;        &lt;h1&gt;Not Found&lt;/h1&gt;&#10;        &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;&#10;        &lt;hr/&gt;&#10;        &lt;p&gt;&lt;i&gt;The DevTest VSE service could not match your request to a recorded request.&amp;nbsp; Consider expanding your service image.&lt;/i&gt;&lt;/p&gt;&#10;        &lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;Produced by a DevTest virtualized web server.&lt;/font&gt;&#10;    &lt;/body&gt;&#10;&lt;/html&gt;&#10;</bd>
+</rp>
+</usrr>
+</serviceImage>

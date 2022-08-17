@@ -1,0 +1,398 @@
+<?xml version="1.0" ?>
+
+<VSModel name="creditApproval" version="5">
+
+<meta>
+   <create version="10.6.0" buildNumber="10.6.0.1011" author="admin" date="10/14/2020" host="dt-tdm-km1" />
+   <lastEdited version="10.7.2" buildNumber="10.7.2.176" author="admin" date="08/17/2022" host="karlm-dt107reg03" />
+</meta>
+
+<id>27408ABD0E6C11EB982042010A8A0FCC</id>
+<IsInProject>true</IsInProject>
+<sig>ZWQ9NSZ0Y3Y9NSZsaXNhdj0xMC43LjIgKDEwLjcuMi4xNzYpJm5vZGVzPTk5MTE4MzgxNw==</sig>
+<subprocess>false</subprocess>
+
+<initState>
+</initState>
+
+<resultState>
+</resultState>
+
+<deletedProps>
+</deletedProps>
+
+<associatedResources>
+<file type="rawTransactionStore">{{LISA_RELATIVE_PROJ_ROOT}}/Data/creditApproval4.vts</file>
+<file type="session">{{LISA_RELATIVE_PROJ_ROOT}}/VirtualServices/VRScenarios/creditApproval4.vr2</file>
+</associatedResources>
+    <Node name="Listen" log=""
+          type="com.itko.lisa.messaging.vse.JmsVseListenStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Virtual Service Router" > 
+
+
+      <!-- Filters -->
+      <Filter type="com.itko.lisa.vse.stateful.common.DataProtocolFilter">
+        <valueToFilterKey>lisa.vse.request</valueToFilterKey>
+<dataProtocol>com.itko.lisa.vse.stateful.protocol.json.JSONDataProtocolHandler2</dataProtocol>
+<processRequests>true</processRequests>
+<processResponses>false</processResponses>
+<CustomFilterData>
+</CustomFilterData>
+      </Filter>
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If being efficient" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Most Efficient, branching to VS Image Response Selection</log>
+<then>VS Image Response Selection</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>EFFICIENT</executionMode>
+</CheckResult>
+
+<onExNode>abort</onExNode>
+<JmsMultiReceiveOperation>
+<OperationInfo>
+<Name>msg</Name>
+</OperationInfo>
+<Timeout>0</Timeout>
+<ReceiveOps>
+<Entry key="Request 1"><OperationInfo>
+<Name>Request 1</Name>
+</OperationInfo>
+<ReceiveOperation>
+<OperationInfo>
+<Name>Request 1</Name>
+</OperationInfo>
+<Destination>
+<AssetInfo type="javax.jms.Destination" hashcode="-632095083"><Url>config://dest-E73B150B04B211EAB7A3F018988D5957</Url>
+</AssetInfo>
+<Ref>
+</Ref>
+</Destination>
+<Consumer>
+<Automatic>true</Automatic>
+</Consumer>
+</ReceiveOperation>
+</Entry>
+<Entry key="Receiver"><OperationInfo>
+<Name>Receiver</Name>
+</OperationInfo>
+<ReceiveOperation>
+<OperationInfo>
+<Name>Receiver</Name>
+</OperationInfo>
+<Destination>
+<AssetInfo type="javax.jms.Destination" hashcode="-868873867"><Url>config://dest-B303C5AD04B211EAB7A3F018988D5957</Url>
+</AssetInfo>
+<Ref>
+</Ref>
+</Destination>
+<Consumer>
+<Automatic>true</Automatic>
+</Consumer>
+</ReceiveOperation>
+</Entry>
+</ReceiveOps>
+<ReplyToMap>
+<Entry key="Response 1"><AssetInfo type="javax.jms.Destination" hashcode="496809999"><Url>config://dest-D8995AC104B211EAB7A3F018988D5957</Url>
+</AssetInfo>
+<Ref>
+</Ref>
+</Entry>
+</ReplyToMap>
+<UseAsync>true</UseAsync>
+<RuntimeScope>STEP</RuntimeScope>
+</JmsMultiReceiveOperation>
+<onTimeoutNode>abort</onTimeoutNode>
+<outputAsObject>true</outputAsObject>
+    </Node>
+
+
+    <Node name="Virtual Service Router" log=""
+          type="com.itko.lisa.vse.stateful.VSRouterStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="VS Image Response Selection" > 
+
+<onerror>abort</onerror>
+<script>// This script must return either an enum entry from ExecutionMode or&#10;// a string that is the name of an enum entry.  The DYNAMIC entry may&#10;// not be returned.  It will be executed for DYNAMIC execution mode&#10;// only.&#10;import com.itko.lisa.vse.ExecutionMode;&#10;&#10;return ExecutionMode.EFFICIENT;&#10;&#10;&#10;/* other values: &#10;&#9;ExecutionMode.TRACK;&#10;&#9;ExecutionMode.STAND_IN;&#10;&#9;ExecutionMode.LIVE;&#10;&#9;ExecutionMode.FAILOVER;&#10;&#9;ExecutionMode.VALIDATION;&#10;&#9;ExecutionMode.LEARNING;&#10;*/&#10;</script>
+<supportedModes>
+<mode>STAND_IN</mode>
+<mode>FAILOVER</mode>
+<mode>EFFICIENT</mode>
+<mode>LEARNING</mode>
+<mode>TRACK</mode>
+<mode>DYNAMIC</mode>
+<mode>VALIDATION</mode>
+<mode>LIVE</mode>
+</supportedModes>
+<liveInvocationStep>Live Invocation</liveInvocationStep>
+    </Node>
+
+
+    <Node name="VS Image Response Selection" log=""
+          type="com.itko.lisa.vse.stateful.ConversationalStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Respond" > 
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If validating" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Image Validation, branching to Live Invocation</log>
+<then>Live Invocation</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>VALIDATION</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If learning" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Learning, branching to Live Invocation</log>
+<then>Live Invocation</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>LEARNING</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If tracking" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Transaction Tracking, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>TRACK</executionMode>
+</CheckResult>
+
+<vsiSource>{{LISA_RELATIVE_PROJ_ROOT}}/VirtualServices/Images/creditApproval.vsi</vsiSource>
+<requestPropertyName>lisa.vse.request</requestPropertyName>
+<outputAsObject>true</outputAsObject>
+<liveInvocationStep>Live Invocation</liveInvocationStep>
+<onExceptionStep>abort</onExceptionStep>
+    </Node>
+
+
+    <Node name="Respond" log=""
+          type="com.itko.lisa.messaging.vse.JmsVseRespondStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Listen" > 
+
+<onExNode>abort</onExNode>
+<JmsMultiSendOperation>
+<OperationInfo>
+<Name>msg</Name>
+</OperationInfo>
+<SendOps>
+<Entry key="Response 1"><OperationInfo>
+<Name>Response 1</Name>
+</OperationInfo>
+<SendOperation>
+<OperationInfo>
+<Name>Response 1</Name>
+</OperationInfo>
+<Destination>
+<AssetInfo type="javax.jms.Destination" hashcode="496809999"><Url>config://dest-D8995AC104B211EAB7A3F018988D5957</Url>
+</AssetInfo>
+<Ref>
+</Ref>
+</Destination>
+<Producer>
+<Automatic>true</Automatic>
+</Producer>
+</SendOperation>
+<SenderIgnoreReplyTo>false</SenderIgnoreReplyTo>
+<CorrelationScheme>
+<OperationInfo type="javax.jms.Message"></OperationInfo>
+<JmsClientCid>
+<OperationInfo>
+<Name>msg</Name>
+</OperationInfo>
+<ManualValue>
+<PayloadInfo type="java.lang.String"></PayloadInfo>
+<String>
+</String>
+</ManualValue>
+<ReuseCorrelationId>true</ReuseCorrelationId>
+<OverrideCorrelationId>false</OverrideCorrelationId>
+</JmsClientCid>
+</CorrelationScheme>
+</Entry>
+</SendOps>
+<RuntimeScope>STEP</RuntimeScope>
+</JmsMultiSendOperation>
+<onLiveInvoking>Live Invocation</onLiveInvoking>
+    </Node>
+
+
+    <Node name="Live Invocation" log=""
+          type="com.itko.lisa.messaging.vse.JmsVseLiveInvocationStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Respond" > 
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If validating" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Image Validation, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>VALIDATION</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If learning" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Learning, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>LEARNING</executionMode>
+</CheckResult>
+
+<onExNode>abort</onExNode>
+<JmsPassthroughOperation>
+<OperationInfo>
+<Name>msg</Name>
+</OperationInfo>
+<MinResponses>2</MinResponses>
+<MaxResponses>2</MaxResponses>
+<SendOp>
+<OperationInfo>
+<Name>msg</Name>
+</OperationInfo>
+<SendOps>
+<Entry key="Request 1"><OperationInfo>
+<Name>Request 1</Name>
+</OperationInfo>
+<SendOperation>
+<OperationInfo>
+<Name>Request 1</Name>
+</OperationInfo>
+<Destination>
+<AssetInfo type="javax.jms.Destination" hashcode="-868873867"><Url>config://dest-B303C5AD04B211EAB7A3F018988D5957</Url>
+</AssetInfo>
+<Ref>
+</Ref>
+</Destination>
+<Producer>
+<Automatic>true</Automatic>
+</Producer>
+</SendOperation>
+<SenderIgnoreReplyTo>false</SenderIgnoreReplyTo>
+</Entry>
+</SendOps>
+<RuntimeScope>STEP</RuntimeScope>
+</SendOp>
+<ReceiveOp>
+<OperationInfo>
+<Name>msg</Name>
+</OperationInfo>
+<Timeout>30</Timeout>
+<ReceiveOps>
+<Entry key="Response 1"><OperationInfo>
+<Name>Response 1</Name>
+</OperationInfo>
+<ReceiveOperation>
+<OperationInfo>
+<Name>Response 1</Name>
+</OperationInfo>
+<Destination>
+<AssetInfo type="javax.jms.Destination" hashcode="1746602287"><Url>config://dest-C1584A5704B211EAB7A3F018988D5957</Url>
+</AssetInfo>
+<Ref>
+</Ref>
+</Destination>
+<Consumer>
+<Automatic>true</Automatic>
+</Consumer>
+</ReceiveOperation>
+<CorrelationScheme>
+<OperationInfo type="javax.jms.Message"></OperationInfo>
+<JmsClientCid>
+<OperationInfo>
+<Name>msg</Name>
+</OperationInfo>
+<ManualValue>
+<PayloadInfo type="java.lang.String"></PayloadInfo>
+<String>
+</String>
+</ManualValue>
+<ReuseCorrelationId>true</ReuseCorrelationId>
+<OverrideCorrelationId>false</OverrideCorrelationId>
+</JmsClientCid>
+</CorrelationScheme>
+</Entry>
+</ReceiveOps>
+<UseAsync>true</UseAsync>
+<RuntimeScope>STEP</RuntimeScope>
+</ReceiveOp>
+</JmsPassthroughOperation>
+<onTimeoutNode>abort</onTimeoutNode>
+<onLiveInvokingNode>Respond</onLiveInvokingNode>
+<outputAsObject>true</outputAsObject>
+<onFailoverNode>VS Image Response Selection</onFailoverNode>
+    </Node>
+
+
+    <Node name="Virtual Service Tracking" log=""
+          type="com.itko.lisa.vse.stateful.VSTrackingStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Respond" > 
+
+<imageResponseProperty>lisa.vse.image.response</imageResponseProperty>
+<liveResponseProperty>lisa.vse.live.response</liveResponseProperty>
+<onExceptionStep>abort</onExceptionStep>
+    </Node>
+
+
+    <Node name="abort" log="The test was aborted"
+          type="com.itko.lisa.test.AbortStep" 
+          version="1" 
+          uid="27408AC30E6C11EB982042010A8A0FCC" 
+          think="0h" 
+          useFilters="true" 
+          quiet="true" 
+          next="fail" > 
+
+    </Node>
+
+
+    <Node name="fail" log=""
+          type="com.itko.lisa.test.Abend" 
+          version="1" 
+          uid="27408AC10E6C11EB982042010A8A0FCC" 
+          think="0h" 
+          useFilters="true" 
+          quiet="true" 
+          next="fail" > 
+
+    </Node>
+
+
+    <Node name="end" log=""
+          type="com.itko.lisa.test.NormalEnd" 
+          version="1" 
+          uid="27408ABF0E6C11EB982042010A8A0FCC" 
+          think="0h" 
+          useFilters="true" 
+          quiet="true" 
+          next="fail" > 
+
+    </Node>
+
+
+</VSModel>

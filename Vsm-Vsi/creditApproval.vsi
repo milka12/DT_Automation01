@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceImage buildNumber="10.6.0.1011" created="2020-10-14.22:16:23.323" id="108" lastModified="2020-10-14.22:25:24.177" name="creditApproval" version="10.6.0">
+<st>
+<t id="107" nd="true">
+<sp>
+<t id="111">
+<rq id="112" op="Request 1" tl="EXACT">
+<ag>
+<p n="address" t="arg:EQUALS;false;;;;">568 Nitzsche Garden</p>
+<p n="agreeTerms" t="arg:EQUALS;false;;;;">true</p>
+<p n="annualIncome" t="arg:EQUALS;false;;;;">120000</p>
+<p n="balanceTransfer" t="arg:EQUALS;false;;;;">false</p>
+<p n="bankStatus" t="arg:EQUALS;false;;;;">Checking and Savings</p>
+<p n="cashAdvance" t="arg:EQUALS;false;;;;">false</p>
+<p n="country" t="arg:EQUALS;false;;;;">US</p>
+<p n="dob" t="arg:ANY;false;;MM/dd/yyyy;;">12/21/1964</p>
+<p n="emailAddress" t="arg:EQUALS;false;;;;">jsmith@demo.io</p>
+<p n="employmentStatus" t="arg:EQUALS;false;;;;">Employed</p>
+<p n="firstName" t="arg:EQUALS;false;;;;">Josh</p>
+<p n="gender" t="arg:EQUALS;false;;;;">M</p>
+<p n="homePhone" t="arg:EQUALS;false;;;;">728-026-8054</p>
+<p n="lastName" t="arg:EQUALS;false;;;;">Smith</p>
+<p n="locality" t="arg:EQUALS;false;;;;">Antwanville</p>
+<p n="minimumCreditCard" t="arg:EQUALS;false;;;;">100</p>
+<p n="mobilePhone" t="arg:EQUALS;false;;;;">350-074-7144</p>
+<p n="monthlyAutoLoan" t="arg:EQUALS;false;;;;">400</p>
+<p n="monthlyMortgage" t="arg:EQUALS;false;;;;">800</p>
+<p n="monthlyOtherLoan" t="arg:EQUALS;false;;;;">100</p>
+<p n="monthlySpend" t="arg:EQUALS;false;;;;">200</p>
+<p n="postalCode" t="arg:EQUALS;false;;;;">26761</p>
+<p n="region" t="arg:EQUALS;false;;;;">WY</p>
+<p n="ssn" t="arg:EQUALS;false;;;;">341-48-3473</p>
+<p n="title" t="arg:EQUALS;false;;;;">Mr.</p>
+<p n="workPhone" t="arg:EQUALS;false;;;;">638-096-1413</p>
+</ag>
+<m>
+<p n="temp">false</p>
+<p n="destinationType">Queue - ASYNC</p>
+<p n="jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="user">admin</p>
+<p n="password.enc">la41830a246ef84625ffe43a98f6b2ffc333d0275b699919b32a757c0101fbf3047837a2296</p>
+<p n="destination">dynamicQueues/PROXY.CREDIT.APP.REQUEST</p>
+<p n="jmsDomain">COMMON</p>
+<p n="connectionFactoryName">TopicConnectionFactory</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+<p n="msg.correlationid">1545b4cd-6d80-45c1-b5f2-b0c0d10d9254</p>
+<p n="msg.delivermode">2</p>
+<p n="msg.priority">4</p>
+<p n="msg.messageid">ID:9bb43461-0e6b-11eb-b6a6-0242ac160002:-1:-1:-1:-1</p>
+<p n="msg.redelivered">false</p>
+<p n="msg.timestamp">1602714090104</p>
+<p n="msg.expiration">0</p>
+<p n="msg.props.__AMQ_CID">65316ea8-0e6b-11eb-b675-0242ac160004</p>
+<p n="msg.props.lisaFrameID">9bb67e50-0e6b-11eb-aa7c-42010a8a0fcc</p>
+<p n="msg.proptypes.lisaFrameRoot">Boolean</p>
+<p n="msg.props.lisaFrameRoot">true</p>
+<p n="msg.props.lisaFrameRemoteIP">10.138.15.204</p>
+<p n="channel.name">Request 1</p>
+<p n="liveRequest.temp">false</p>
+<p n="liveRequest.destinationType">Queue - ASYNC</p>
+<p n="liveRequest.jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="liveRequest.jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="liveRequest.user">admin</p>
+<p n="liveRequest.password.enc">l3b1d88b75fce4c5c54e74ef0555570def6820d8ca5b13fe13bab7ce3362081364f65bda795</p>
+<p n="liveRequest.destination">dynamicQueues/CREDIT.APP.REQUEST</p>
+<p n="liveRequest.jmsDomain">COMMON</p>
+<p n="liveRequest.connectionFactoryName">TopicConnectionFactory</p>
+</m>
+<bd chs="UTF-8">{"firstName":"Josh","lastName":"Smith","title":"Mr.","gender":"M","ssn":"341-48-3473","dob":"12/21/1964","homePhone":"728-026-8054","workPhone":"638-096-1413","mobilePhone":"350-074-7144","address":"568 Nitzsche Garden","locality":"Antwanville","region":"WY","postalCode":"26761","country":"US","emailAddress":"jsmith@demo.io","employmentStatus":"Employed","bankStatus":"Checking and Savings","annualIncome":120000,"monthlyMortgage":800,"monthlyAutoLoan":400,"monthlyOtherLoan":100,"minimumCreditCard":100,"monthlySpend":200,"cashAdvance":false,"balanceTransfer":false,"agreeTerms":true}</bd>
+</rq>
+<rs>
+<rp id="113" t="1216">
+<m>
+<p n="temp">false</p>
+<p n="destinationType">Queue - ASYNC</p>
+<p n="jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="user">admin</p>
+<p n="password.enc">l573a28c2c542bc75d3148d94a7ab7b6423674977a166cba764daac29f803f68e47d3e65ca8</p>
+<p n="destination">dynamicQueues/PROXY.CREDIT.APP.RESPONSE</p>
+<p n="jmsDomain">COMMON</p>
+<p n="connectionFactoryName">TopicConnectionFactory</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+<p n="msg.correlationid">1545b4cd-6d80-45c1-b5f2-b0c0d10d9254</p>
+<p n="msg.delivermode">2</p>
+<p n="msg.priority">4</p>
+<p n="msg.messageid">ID:dt-tdm-km1-53511-1602711984343-197:1:1:1:1</p>
+<p n="msg.redelivered">false</p>
+<p n="msg.timestamp">1602714091299</p>
+<p n="msg.expiration">0</p>
+<p n="msg.props.__AMQ_CID">613f7437-0e6b-11eb-8c60-0242ac160003</p>
+<p n="msg.proptypes.timestamp">Long</p>
+<p n="msg.props.timestamp">1602714091075</p>
+<p n="channel.name">Response 1</p>
+<p n="liveResponse.temp">false</p>
+<p n="liveResponse.destinationType">Queue - ASYNC</p>
+<p n="liveResponse.jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="liveResponse.jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="liveResponse.user">admin</p>
+<p n="liveResponse.password.enc">l1e46be578f1014c152a3bfb1d9dbb73ddd00c41c95f4dd76f6c1889bc838315f7e609704ba</p>
+<p n="liveResponse.destination">dynamicQueues/CREDIT.APP.RESPONSE</p>
+<p n="liveResponse.jmsDomain">COMMON</p>
+<p n="liveResponse.connectionFactoryName">TopicConnectionFactory</p>
+</m>
+<bd chs="UTF-8">{"Status":"Accepted","Number":"728934001","StatusDetail":"Thank you for your interest in a Digital Credit account. Your application has been accepted. Once your  application has completed the review process, you will recieve an update from the credit review team.","Id":"30"}</bd>
+</rp>
+<rp id="114" t="21409">
+<m>
+<p n="temp">false</p>
+<p n="destinationType">Queue - ASYNC</p>
+<p n="jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="user">admin</p>
+<p n="password.enc">lba225a00477b0d3db590ea09dd5e14f56d84b738661168076be49e97d88c4a8171b70e2a73</p>
+<p n="destination">dynamicQueues/PROXY.CREDIT.APP.RESPONSE</p>
+<p n="jmsDomain">COMMON</p>
+<p n="connectionFactoryName">TopicConnectionFactory</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+<p n="msg.correlationid">1545b4cd-6d80-45c1-b5f2-b0c0d10d9254</p>
+<p n="msg.delivermode">2</p>
+<p n="msg.priority">4</p>
+<p n="msg.messageid">ID:dt-tdm-km1-53511-1602711984343-199:1:1:1:1</p>
+<p n="msg.redelivered">false</p>
+<p n="msg.timestamp">1602714111519</p>
+<p n="msg.expiration">0</p>
+<p n="msg.props.__AMQ_CID">613f7437-0e6b-11eb-8c60-0242ac160003</p>
+<p n="channel.name">Response 1</p>
+<p n="liveResponse.temp">false</p>
+<p n="liveResponse.destinationType">Queue - ASYNC</p>
+<p n="liveResponse.jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="liveResponse.jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="liveResponse.user">admin</p>
+<p n="liveResponse.password.enc">l034c6f689c8ca4f274659c1d55e0352e3c149a7ae48fb73764d17bc933d674a702dbf6bdff</p>
+<p n="liveResponse.destination">dynamicQueues/CREDIT.APP.RESPONSE</p>
+<p n="liveResponse.jmsDomain">COMMON</p>
+<p n="liveResponse.connectionFactoryName">TopicConnectionFactory</p>
+</m>
+<bd chs="UTF-8">{"Status":"Approved","Number":"728934001","approvedCardId":"36","StatusDetail":"Thank you for your interest in a Digital Credit account. Digital Credit has reviewed your application, and it has been approved for a new credit line of $2,500.00 with a qualified APR of 26.24%.","RiskScore":"24","Id":"30","CreditScore":"458"}</bd>
+</rp>
+</rs>
+</t>
+</sp>
+<rq id="115" op="Request 1" tl="SIGNATURE">
+<ag>
+<p n="address" t="arg:EQUALS;false;;;;">568 Nitzsche Garden</p>
+<p n="agreeTerms" t="arg:EQUALS;false;;;;">true</p>
+<p n="annualIncome" t="arg:EQUALS;false;;;;">120000</p>
+<p n="balanceTransfer" t="arg:EQUALS;false;;;;">false</p>
+<p n="bankStatus" t="arg:EQUALS;false;;;;">Checking and Savings</p>
+<p n="cashAdvance" t="arg:EQUALS;false;;;;">false</p>
+<p n="country" t="arg:EQUALS;false;;;;">US</p>
+<p n="dob" t="arg:ANY;false;;MM/dd/yyyy;;">12/21/1964</p>
+<p n="emailAddress" t="arg:EQUALS;false;;;;">jsmith@demo.io</p>
+<p n="employmentStatus" t="arg:EQUALS;false;;;;">Employed</p>
+<p n="firstName" t="arg:EQUALS;false;;;;">Josh</p>
+<p n="gender" t="arg:EQUALS;false;;;;">M</p>
+<p n="homePhone" t="arg:EQUALS;false;;;;">728-026-8054</p>
+<p n="lastName" t="arg:EQUALS;false;;;;">Smith</p>
+<p n="locality" t="arg:EQUALS;false;;;;">Antwanville</p>
+<p n="minimumCreditCard" t="arg:EQUALS;false;;;;">100</p>
+<p n="mobilePhone" t="arg:EQUALS;false;;;;">350-074-7144</p>
+<p n="monthlyAutoLoan" t="arg:EQUALS;false;;;;">400</p>
+<p n="monthlyMortgage" t="arg:EQUALS;false;;;;">800</p>
+<p n="monthlyOtherLoan" t="arg:EQUALS;false;;;;">100</p>
+<p n="monthlySpend" t="arg:EQUALS;false;;;;">200</p>
+<p n="postalCode" t="arg:EQUALS;false;;;;">26761</p>
+<p n="region" t="arg:EQUALS;false;;;;">WY</p>
+<p n="ssn" t="arg:EQUALS;false;;;;">341-48-3473</p>
+<p n="title" t="arg:EQUALS;false;;;;">Mr.</p>
+<p n="workPhone" t="arg:EQUALS;false;;;;">638-096-1413</p>
+</ag>
+<m>
+<p n="temp">false</p>
+<p n="destinationType">Queue - ASYNC</p>
+<p n="jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="user">admin</p>
+<p n="password.enc">la41830a246ef84625ffe43a98f6b2ffc333d0275b699919b32a757c0101fbf3047837a2296</p>
+<p n="destination">dynamicQueues/PROXY.CREDIT.APP.REQUEST</p>
+<p n="jmsDomain">COMMON</p>
+<p n="connectionFactoryName">TopicConnectionFactory</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+<p n="msg.correlationid">1545b4cd-6d80-45c1-b5f2-b0c0d10d9254</p>
+<p n="msg.delivermode">2</p>
+<p n="msg.priority">4</p>
+<p n="msg.messageid">ID:9bb43461-0e6b-11eb-b6a6-0242ac160002:-1:-1:-1:-1</p>
+<p n="msg.redelivered">false</p>
+<p n="msg.timestamp">1602714090104</p>
+<p n="msg.expiration">0</p>
+<p n="msg.props.__AMQ_CID">65316ea8-0e6b-11eb-b675-0242ac160004</p>
+<p n="msg.props.lisaFrameID">9bb67e50-0e6b-11eb-aa7c-42010a8a0fcc</p>
+<p n="msg.proptypes.lisaFrameRoot">Boolean</p>
+<p n="msg.props.lisaFrameRoot">true</p>
+<p n="msg.props.lisaFrameRemoteIP">10.138.15.204</p>
+<p n="channel.name">Request 1</p>
+<p n="liveRequest.temp">false</p>
+<p n="liveRequest.destinationType">Queue - ASYNC</p>
+<p n="liveRequest.jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="liveRequest.jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="liveRequest.user">admin</p>
+<p n="liveRequest.password.enc">l3b1d88b75fce4c5c54e74ef0555570def6820d8ca5b13fe13bab7ce3362081364f65bda795</p>
+<p n="liveRequest.destination">dynamicQueues/CREDIT.APP.REQUEST</p>
+<p n="liveRequest.jmsDomain">COMMON</p>
+<p n="liveRequest.connectionFactoryName">TopicConnectionFactory</p>
+</m>
+<bd chs="UTF-8">{"firstName":"Josh","lastName":"Smith","title":"Mr.","gender":"M","ssn":"341-48-3473","dob":"12/21/1964","homePhone":"728-026-8054","workPhone":"638-096-1413","mobilePhone":"350-074-7144","address":"568 Nitzsche Garden","locality":"Antwanville","region":"WY","postalCode":"26761","country":"US","emailAddress":"jsmith@demo.io","employmentStatus":"Employed","bankStatus":"Checking and Savings","annualIncome":120000,"monthlyMortgage":800,"monthlyAutoLoan":400,"monthlyOtherLoan":100,"minimumCreditCard":100,"monthlySpend":200,"cashAdvance":false,"balanceTransfer":false,"agreeTerms":true}</bd>
+</rq>
+<rs>
+<rp id="116" t="1216">
+<m>
+<p n="temp">false</p>
+<p n="destinationType">Queue - ASYNC</p>
+<p n="jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="user">admin</p>
+<p n="password.enc">l573a28c2c542bc75d3148d94a7ab7b6423674977a166cba764daac29f803f68e47d3e65ca8</p>
+<p n="destination">dynamicQueues/PROXY.CREDIT.APP.RESPONSE</p>
+<p n="jmsDomain">COMMON</p>
+<p n="connectionFactoryName">TopicConnectionFactory</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+<p n="msg.correlationid">1545b4cd-6d80-45c1-b5f2-b0c0d10d9254</p>
+<p n="msg.delivermode">2</p>
+<p n="msg.priority">4</p>
+<p n="msg.messageid">ID:dt-tdm-km1-53511-1602711984343-197:1:1:1:1</p>
+<p n="msg.redelivered">false</p>
+<p n="msg.timestamp">1602714091299</p>
+<p n="msg.expiration">0</p>
+<p n="msg.props.__AMQ_CID">613f7437-0e6b-11eb-8c60-0242ac160003</p>
+<p n="msg.proptypes.timestamp">Long</p>
+<p n="msg.props.timestamp">1602714091075</p>
+<p n="channel.name">Response 1</p>
+<p n="liveResponse.temp">false</p>
+<p n="liveResponse.destinationType">Queue - ASYNC</p>
+<p n="liveResponse.jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="liveResponse.jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="liveResponse.user">admin</p>
+<p n="liveResponse.password.enc">l1e46be578f1014c152a3bfb1d9dbb73ddd00c41c95f4dd76f6c1889bc838315f7e609704ba</p>
+<p n="liveResponse.destination">dynamicQueues/CREDIT.APP.RESPONSE</p>
+<p n="liveResponse.jmsDomain">COMMON</p>
+<p n="liveResponse.connectionFactoryName">TopicConnectionFactory</p>
+</m>
+<bd chs="UTF-8">{"Status":"Accepted","Number":"728934001","StatusDetail":"Thank you for your interest in a Digital Credit account. Your application has been accepted. Once your  application has completed the review process, you will recieve an update from the credit review team.","Id":"30"}</bd>
+</rp>
+<rp id="117" t="21409">
+<m>
+<p n="temp">false</p>
+<p n="destinationType">Queue - ASYNC</p>
+<p n="jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="user">admin</p>
+<p n="password.enc">lba225a00477b0d3db590ea09dd5e14f56d84b738661168076be49e97d88c4a8171b70e2a73</p>
+<p n="destination">dynamicQueues/PROXY.CREDIT.APP.RESPONSE</p>
+<p n="jmsDomain">COMMON</p>
+<p n="connectionFactoryName">TopicConnectionFactory</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+<p n="msg.correlationid">1545b4cd-6d80-45c1-b5f2-b0c0d10d9254</p>
+<p n="msg.delivermode">2</p>
+<p n="msg.priority">4</p>
+<p n="msg.messageid">ID:dt-tdm-km1-53511-1602711984343-199:1:1:1:1</p>
+<p n="msg.redelivered">false</p>
+<p n="msg.timestamp">1602714111519</p>
+<p n="msg.expiration">0</p>
+<p n="msg.props.__AMQ_CID">613f7437-0e6b-11eb-8c60-0242ac160003</p>
+<p n="channel.name">Response 1</p>
+<p n="liveResponse.temp">false</p>
+<p n="liveResponse.destinationType">Queue - ASYNC</p>
+<p n="liveResponse.jndiFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</p>
+<p n="liveResponse.jndiServerURL">tcp://10.138.0.125:61616</p>
+<p n="liveResponse.user">admin</p>
+<p n="liveResponse.password.enc">l034c6f689c8ca4f274659c1d55e0352e3c149a7ae48fb73764d17bc933d674a702dbf6bdff</p>
+<p n="liveResponse.destination">dynamicQueues/CREDIT.APP.RESPONSE</p>
+<p n="liveResponse.jmsDomain">COMMON</p>
+<p n="liveResponse.connectionFactoryName">TopicConnectionFactory</p>
+</m>
+<bd chs="UTF-8">{"Status":"Approved","Number":"728934001","approvedCardId":"36","StatusDetail":"Thank you for your interest in a Digital Credit account. Digital Credit has reviewed your application, and it has been approved for a new credit line of $2,500.00 with a qualified APR of 26.24%.","RiskScore":"24","Id":"30","CreditScore":"458"}</bd>
+</rp>
+</rs>
+</t>
+</st>
+<ucrr>
+<rp id="110" t="0">
+<m>
+<p n="channel.name">Response 1</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+</m>
+<bd chs="UTF-8">The request failed to produce a response for the virtual service to reply with.</bd>
+</rp>
+</ucrr>
+<usrr>
+<rp id="109" t="0">
+<m>
+<p n="channel.name">Response 1</p>
+<p n="msg.type">javax.jms.TextMessage</p>
+</m>
+<bd chs="UTF-8">The request failed to produce a response for the virtual service to reply with.</bd>
+</rp>
+</usrr>
+</serviceImage>
