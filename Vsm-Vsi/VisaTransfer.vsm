@@ -4,10 +4,10 @@
 
 <meta>
    <create version="10.6.0" buildNumber="10.6.0.1011" author="admin" date="04/15/2021" host="karlm-dt106ed" />
-   <lastEdited version="10.7.2" buildNumber="10.7.2.176" author="admin" date="08/17/2022" host="karlm-dt107reg03" />
+   <lastEdited version="10.7.2" buildNumber="10.7.2.176" author="admin" date="08/18/2022" host="karlm-dt107reg03" />
 </meta>
 
-<id>4B8EFF2A9ED411EBB74542010AD2ED8E</id>
+<id>889AC9141F0B11ED926142010AD2ED43</id>
 <Documentation>Visa Transfer</Documentation>
 <IsInProject>true</IsInProject>
 <sig>ZWQ9NSZ0Y3Y9NSZsaXNhdj0xMC43LjIgKDEwLjcuMi4xNzYpJm5vZGVzPS0yMTAwNzI1MTE1</sig>
@@ -29,7 +29,7 @@
     <Node name="Virtual HTTPS Listener 8082" log=""
           type="com.itko.lisa.vse.stateful.protocol.http.HttpListenStep" 
           version="1" 
-          uid="4B8EFF2B9ED411EBB74542010AD2ED8E" 
+          uid="889AC9151F0B11ED926142010AD2ED43" 
           think="0" 
           useFilters="true" 
           quiet="true" 
@@ -79,7 +79,7 @@
     <Node name="Virtual Service Router" log=""
           type="com.itko.lisa.vse.stateful.VSRouterStep" 
           version="1" 
-          uid="4B8EFF2C9ED411EBB74542010AD2ED8E" 
+          uid="889AC9161F0B11ED926142010AD2ED43" 
           think="0" 
           useFilters="true" 
           quiet="true" 
@@ -104,7 +104,7 @@
     <Node name="VS Image Response Selection" log=""
           type="com.itko.lisa.vse.stateful.ConversationalStep" 
           version="1" 
-          uid="4B8EFF2D9ED411EBB74542010AD2ED8E" 
+          uid="889AC9171F0B11ED926142010AD2ED43" 
           think="0" 
           useFilters="true" 
           quiet="true" 
@@ -144,7 +144,7 @@
     <Node name="Virtual HTTPS Responder" log=""
           type="com.itko.lisa.vse.stateful.protocol.http.HttpRespondStep" 
           version="1" 
-          uid="4B8EFF2E9ED411EBB74542010AD2ED8E" 
+          uid="889AC9181F0B11ED926142010AD2ED43" 
           think="0" 
           useFilters="true" 
           quiet="false" 
@@ -158,7 +158,7 @@
     <Node name="Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}" log=""
           type="com.itko.lisa.vse.stateful.protocol.http.HttpLiveInvocationStep" 
           version="1" 
-          uid="4B8EFF2F9ED411EBB74542010AD2ED8E" 
+          uid="889AC9191F0B11ED926142010AD2ED43" 
           think="0" 
           useFilters="true" 
           quiet="true" 
@@ -195,7 +195,7 @@
     <Node name="Virtual Service Tracking" log=""
           type="com.itko.lisa.vse.stateful.VSTrackingStep" 
           version="1" 
-          uid="4B8EFF309ED411EBB74542010AD2ED8E" 
+          uid="889AC91A1F0B11ED926142010AD2ED43" 
           think="0" 
           useFilters="true" 
           quiet="true" 
@@ -210,7 +210,7 @@
     <Node name="Live System Failure" log=""
           type="com.itko.lisa.test.NoTransNode" 
           version="1" 
-          uid="4B8EFF319ED411EBB74542010AD2ED8E" 
+          uid="889AC91B1F0B11ED926142010AD2ED43" 
           think="0" 
           useFilters="true" 
           quiet="true" 
@@ -235,10 +235,10 @@
     </Node>
 
 
-    <Node name="end" log=""
-          type="com.itko.lisa.test.NormalEnd" 
+    <Node name="abort" log="The test was aborted"
+          type="com.itko.lisa.test.AbortStep" 
           version="1" 
-          uid="4B8EFF369ED411EBB74542010AD2ED8E" 
+          uid="889AC91E1F0B11ED926142010AD2ED43" 
           think="0h" 
           useFilters="true" 
           quiet="true" 
@@ -250,7 +250,7 @@
     <Node name="fail" log=""
           type="com.itko.lisa.test.Abend" 
           version="1" 
-          uid="4B8EFF359ED411EBB74542010AD2ED8E" 
+          uid="889AC91F1F0B11ED926142010AD2ED43" 
           think="0h" 
           useFilters="true" 
           quiet="true" 
@@ -259,10 +259,10 @@
     </Node>
 
 
-    <Node name="abort" log="The test was aborted"
-          type="com.itko.lisa.test.AbortStep" 
+    <Node name="end" log=""
+          type="com.itko.lisa.test.NormalEnd" 
           version="1" 
-          uid="4B8EFF349ED411EBB74542010AD2ED8E" 
+          uid="889AC9201F0B11ED926142010AD2ED43" 
           think="0h" 
           useFilters="true" 
           quiet="true" 
